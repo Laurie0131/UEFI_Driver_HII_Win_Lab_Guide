@@ -66,7 +66,8 @@ formset
     guid  = MYWIZARDDRIVER_FORMSET_GUID;    // GUID of this buffer storage
 ```
 6.  Continue **adding** the remaining code to MyWizardDriver.vfr. This is a Enable/ Disable question for the setup menu in the form of a Check box.
-<pre>
+
+```
 
  form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE);
     subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT);
@@ -91,10 +92,13 @@ formset
    endform;
 
 endformset;
-</pre>
-7. **Save** MyWizardDriver.vfr 
-8. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+
 ```
+`7`. **Save** MyWizardDriver.vfr 
+`8`. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+
+```
+
   #langdef en "English"
 
   #string STR_SAMPLE_FORM_SET_TITLE      #language en  "My Wizard  Driver Sample Formset"
@@ -107,8 +111,11 @@ endformset;
                                       
   #string STR_CHECK_BOX_HELP             #language en "This is the help message for the enable My XYZ device. Check this box to enable this device."
 
+
 ```
-9. **Save** MyWizardDriver.uni 
+
+
+`9`. **Save** MyWizardDriver.uni 
 10. Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
 
 
@@ -119,13 +126,9 @@ endformset;
 #include <Protocol/HiiString.h> 
 #include <Library/DevicePathLib.h>
 ```
-
 ![](/media/image9.png)
-
 11. To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “extern” statements: 
-
-
-```
+```c
 
    #define MYWIZARDDRIVER_DEV_SIGNATURE SIGNATURE_32 ('m', 'w', 'd', 'r')  
 
@@ -165,12 +168,10 @@ typedef struct {
 
 #pragma pack()
 
-
 ```
 ![](/media/image10.png)
 12.  **Save** MyWizardDriver.h 
-13.  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>
-In this step, you declare a local (to the module “m”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
+13.  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>In this step, you declare a local (to the module “m”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
 ```
 //HII support
 EFI_GUID   mMyWizardDriverFormSetGuid = MYWIZARDDRIVER_FORMSET_GUID;
@@ -202,7 +203,7 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
   }
 };
 ```
-14. **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoin`t in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
+`14`. **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoin`t in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
 
 ```
  // HII Locals
