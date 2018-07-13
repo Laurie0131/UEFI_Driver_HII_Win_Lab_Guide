@@ -76,6 +76,9 @@ MdeModulePkg/MdeModulePkg.dec
 ```
 ![](/media/image42.png)
 
+
+
+
 |  | // |
 |  |  |
 |  | Modify the following lines: |
@@ -105,6 +108,8 @@ MdeModulePkg/MdeModulePkg.dec
 |  | **Press** “Enter” |
 |  | **Type** Reset |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+
+---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.3
 
