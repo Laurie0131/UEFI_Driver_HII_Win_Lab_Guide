@@ -289,8 +289,7 @@ EFI_STATUS                       Status;
 ![](/media/image24.png)
 16. **Press** “Enter” 
 17. At the Shell Prompt type **dmpstore -all** <BR> **Notice** that enable is selected and saved in NVRam as the value of 0x00:
-![](/media/image36.png)
-![](/media/image37.png)
+![](/media/image36-37.JPG)
 18. **Type** Reset to return to the Visual Studio Command Prompt 
 
 ---
