@@ -89,21 +89,181 @@ EFI_HII_CONFIG_ROUTING_PROTOCOL *HiiConfigRouting;
 5. **Comment out** the matching “`}`” with “`//`” to the if statement (as shown below at approx. line 310): 
 ![](/media/image30.png)
 6. **Save** MyWizardDriver.c
-|  | **Open** C:\fw\edk2\MyWizardDriver\HiiConfigAccess.c**.** |
-|  | **Add** the following extern statements for the form GUID and the NVRam variable (as shown below) these are global to the driver module only hence the beginning lower case “m” is the standard for a global for a module : |
-|  | extern EFI_GUID mMyWizardDriverFormSetGuid; |
-|  |  |
-|  | **Locate** MyWizardDriverHiiConfigAccessExtractConfig and **replace** line 108, “**return EFI_NOT_FOUND**”, with the following code spread over **two** pages: |
-|  | FROM: TO: |
-|  | EFI_STATUS Status; |
-|  | if (EFI_ERROR (Status)) { |
-|  | Now **locate** MyWizardDriverHiiConfigAccessRouteConfigand **replace** line at approx. 228, “**return EFI_NOT_FOUND**”, with the following code: |
-|  | FROM: TO: |
-|  | **EFI_STATUS Status;** |
-|  | Lastly**, locate** MyWizardDriverHiiConfigAccessCallback and **replace **at approx.**** line 326, “**return EFI_UNSUPPORTED**;”, with the following code: |
-|  | FROM: TO: |
-|  | MYWIZARDDRIVER_DEV *PrivateData; |
-|  | **Save** HiiConfigAccess.c |
+7. **Open** C:\fw\edk2\MyWizardDriver\HiiConfigAccess.c. <br>  The Driver Wizard only made dummy functions for the extract, route and callback functions. In order to save the Data passed into the forms from the Hii Browser engine, you will need to port these functions to be functional.
+8. **Add** the following extern statements for the form GUID and the NVRam variable (as shown below) these are global to the driver module only hence the beginning lower case “m” is the standard for a global for a module : 
+
+```
+extern EFI_GUID   mMyWizardDriverFormSetGuid;
+extern CHAR16     mIfrVariableName[];
+```
+![](/media/image31.png)
+9. **Locate** `MyWizardDriverHiiConfigAccessExtractConfig` and **replace** line 108, “`return EFI_NOT_FOUND`”, with the following code spread over  **Next** pages: 
+![](/media/image32.png)<br>
+```
+//Begin code
+ EFI_STATUS                       Status;
+  UINTN                            BufferSize;
+  MYWIZARDDRIVER_DEV			   *PrivateData;
+  EFI_HII_CONFIG_ROUTING_PROTOCOL  *HiiConfigRouting;
+  EFI_STRING                       ConfigRequest;
+  EFI_STRING                       ConfigRequestHdr;
+  UINTN                            Size;
+  BOOLEAN                          AllocatedRequest;
+  if (Progress == NULL || Results == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
+  //
+  // Initialize the local variables.
+  //
+  ConfigRequestHdr  = NULL;
+  ConfigRequest     = NULL;
+  Size              = 0;
+  *Progress         = Request;
+  AllocatedRequest  = FALSE;
+  PrivateData = MYWIZARDDRIVER_DEV_FROM_THIS (This);
+  HiiConfigRouting = PrivateData->HiiConfigRouting;
+  //
+  // Get Buffer Storage data from EFI variable.
+  // Try to get the current setting from variable.
+  //
+  BufferSize = sizeof (MYWIZARDDRIVER_CONFIGURATION);
+  Status = gRT->GetVariable (
+            mIfrVariableName,
+            &mMyWizardDriverFormSetGuid,
+            NULL,
+            &BufferSize,
+            &PrivateData->Configuration
+            );
+if (EFI_ERROR (Status)) {
+  return EFI_NOT_FOUND;
+}
+  if (Request == NULL) {
+	    DEBUG ((DEBUG_INFO, "\n:: Inside of Extract Config and Request == Null "));
+  } else { 
+    ConfigRequest = Request;
+  } 
+    //
+    // Convert buffer data to <ConfigResp> by helper function BlockToConfig()
+    //
+    Status = HiiConfigRouting->BlockToConfig (
+                                  HiiConfigRouting,
+                                  ConfigRequest,
+                                  (UINT8 *) &PrivateData->Configuration,
+                                  BufferSize,
+                                  Results,
+                                  Progress
+                                  );
+  //
+  // Free the allocated config request string.
+  //
+  if (AllocatedRequest) {
+    FreePool (ConfigRequest);
+  }
+  //
+  // Set Progress string to the original request string.
+  //
+  if (Request == NULL) {
+    *Progress = NULL;
+  } else if (StrStr (Request, L"OFFSET") == NULL) {
+    *Progress = Request + StrLen (Request);
+  }
+  return Status;
+// End code
+```
+- (10).  Now **locate** `MyWizardDriverHiiConfigAccessRouteConfig` and **replace** line at approx. 228, with “`return EFI_NOT_FOUND`”, with the following code: 
+![](/media/image33.png)
+
+```
+//Begin code
+EFI_STATUS                       Status;
+  UINTN                            BufferSize;
+  MYWIZARDDRIVER_DEV		       *PrivateData;
+  EFI_HII_CONFIG_ROUTING_PROTOCOL  *HiiConfigRouting;
+
+  if (Configuration == NULL || Progress == NULL) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+  PrivateData = MYWIZARDDRIVER_DEV_FROM_THIS (This);
+  HiiConfigRouting = PrivateData->HiiConfigRouting;
+  *Progress = Configuration;
+
+  //
+  // Get Buffer Storage data from EFI variable
+  //
+  BufferSize = sizeof (MYWIZARDDRIVER_CONFIGURATION);
+  Status = gRT->GetVariable (
+            mIfrVariableName,
+            &mMyWizardDriverFormSetGuid,
+            NULL,
+            &BufferSize,
+            &PrivateData->Configuration
+            );
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+  
+  //
+  // Convert <ConfigResp> to buffer data by helper function ConfigToBlock()
+  //
+  BufferSize = sizeof (MYWIZARDDRIVER_CONFIGURATION);
+  Status = HiiConfigRouting->ConfigToBlock (
+                               HiiConfigRouting,
+                               Configuration,
+                               (UINT8 *) &PrivateData->Configuration,
+                               &BufferSize,
+                               Progress
+                               );
+  if (EFI_ERROR (Status)) {
+    return Status;
+  }
+
+  //
+  // Store Buffer Storage back to EFI variable
+  //
+  Status = gRT->SetVariable(
+                  mIfrVariableName,
+                  &mMyWizardDriverFormSetGuid,
+                  EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS,
+                  sizeof (MYWIZARDDRIVER_CONFIGURATION),
+                  &PrivateData->Configuration
+                  );
+  	    DEBUG ((DEBUG_INFO, "\n:: ROUTE CONFIG Saving the configuration to NVRAM \n"));
+
+  return Status;
+
+
+  //return EFI_NOT_FOUND;
+//end code
+```
+- (11) Lastly**, locate** MyWizardDriverHiiConfigAccessCallback and **replace **at approx.**** line 326, “**return EFI_UNSUPPORTED**;”, with the following code: 
+![](/media/image34.png)
+```
+//Begin code
+  MYWIZARDDRIVER_DEV      *PrivateData;
+  EFI_STATUS                      Status;
+  EFI_FORM_ID                     FormId;
+
+    DEBUG ((DEBUG_INFO, "\n:: START Call back ,Question ID=0x%08x Type=0x%04x Action=0x%04x", QuestionId, Type, Action));
+
+
+
+  if (((Value == NULL) && (Action != EFI_BROWSER_ACTION_FORM_OPEN) && (Action != EFI_BROWSER_ACTION_FORM_CLOSE))||
+    (ActionRequest == NULL)) {
+    return EFI_INVALID_PARAMETER;
+  }
+
+
+  FormId = 0;
+  Status = EFI_SUCCESS;
+  PrivateData = MYWIZARDDRIVER_DEV_FROM_THIS (This);
+
+  return Status;
+//end code
+```
+- (12) **Save** HiiConfigAccess.c 
+
+
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
 |  | **Type** build run |
