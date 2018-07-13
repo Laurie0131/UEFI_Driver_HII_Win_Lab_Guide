@@ -238,6 +238,7 @@ EFI_STATUS                       Status;
 ```
 - (11) Lastly**, locate** MyWizardDriverHiiConfigAccessCallback and **replace **at approx.**** line 326, “**return EFI_UNSUPPORTED**;”, with the following code: 
 ![](/media/image34.png)
+
 ```
 //Begin code
   MYWIZARDDRIVER_DEV      *PrivateData;
@@ -261,6 +262,7 @@ EFI_STATUS                       Status;
   return Status;
 //end code
 ```
+
 - (12) **Save** HiiConfigAccess.c 
 
 #### Build and test MyWizardDriver
