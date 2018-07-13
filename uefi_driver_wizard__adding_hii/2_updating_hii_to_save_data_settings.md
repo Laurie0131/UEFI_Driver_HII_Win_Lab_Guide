@@ -263,34 +263,40 @@ EFI_STATUS                       Status;
 ```
 - (12) **Save** HiiConfigAccess.c 
 
+#### Build and test MyWizardDriver
 
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **At the UEFI Shell prompt, type** fs0: |
-|  | **Press** “Enter” |
-|  | **Type** Load MyWizardDriver.efi |
-|  | **Press** “Enter” |
-|  | **Type** exit |
-|  | **Press** “Enter” |
-|  | **Now at the setup front page menu press the down arrow to “Device Manager”** |
-|  | **Press** “Enter” |
-|  | ****Inside the Device Manager menu** select **“My Wizard Driver Sample Formset”**** |
-|  | **Press** “Enter” . |
-|  | **_Note_**: Once you hit “Enter”, notice that your form is now displayed with a choice to enable your Device. Also notice the titles and help strings that are in the .UNI file you edited. |
-|  | Test by **Press** the space bar to Enable and Disable the “Enable My XYZ Device” to change its value from**:** [X] to [ ] |
-|  | **Note**: Notice the “Configuration changed” message at the menu bottom. |
-|  | **Press** “F10” |
-|  | **Press **“Escape” to exit**** |
-|  | **Press **“Escape” to exit** **the “Device Manager” Page**** |
-|  | **Press **Up Arrow to “Continue”**** |
-|  | **Press** “Enter” |
-|  | ****At the Shell Prompt** type **dmpstore -all**** |
-|  | **Notice** that enable is selected and saved in NVRam as the value of 0x00: |
-|  | **Type** Reset |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+1. **Open** the Visual Studio Command Prompt 
+2.  **Type** build 
+3. **Type** build run 
+4.  **At the UEFI Shell prompt,type** fs0: 
+5.  **Type** Load MyWizardDriver.efi 
+6.  **Press** “Enter” 
+![](/media/image17.png)
+7.  **Type** exit 
+8.  Now at the setup front page menu,** select **“Device Manager”
+![](/media/image18.png)
+9. **Press** “Enter”  to enter **“Device Manager”**
+10. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
+![](/media/image19.png)
+**Press** "Enter"
+![](/media/image20.png)
+**_Note_**: Once you hit “Enter”, notice that your form is now displayed with a choice to enable your Device. Also notice the titles and help strings that are in the .UNI file you edited. 
+11. Test by **Press** the space bar to Enable and Disable the “Enable My XYZ Device” to change its value from**:** `[X]` to `[ ]` <br> **Note**: Notice the “`Configuration changed`” message at the menu bottom. 
+12. **Press** “F10” 
+13. **Press **“Escape” to exit
+14. **Press **“Escape” to exit the “Device Manager” Page
+15. **Press **Up Arrow to “Continue”
+![](/media/image24.png)
+16. **Press** “Enter” 
+17. At the Shell Prompt type **dmpstore -all** <BR> **Notice** that enable is selected and saved in NVRam as the value of 0x00:
+![](/media/image36.png)
+![](/media/image37.png)
+18. **Type** Reset to return to the Visual Studio Command Prompt 
+
+---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.2
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean
+
+### End of Lab 2
