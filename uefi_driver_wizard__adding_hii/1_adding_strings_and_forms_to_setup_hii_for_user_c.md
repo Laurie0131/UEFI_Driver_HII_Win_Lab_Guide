@@ -32,4 +32,5 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 In this lab, you’ll learn how to use HII to add strings and forms to a firmware setup menu for user configuration. Once you’ve complete this lab, your end result will match Figure 1.
 
-Figure 1 My Wizard Driver menu with strings and forms
+![](/media/image1.png)
+###### Figure 1 My Wizard Driver menu with strings and forms

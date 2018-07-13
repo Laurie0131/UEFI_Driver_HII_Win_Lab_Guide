@@ -31,8 +31,8 @@
 
 # UEFI Driver Wizard – Adding HII {#uefi-driver-wizard-adding-hii}
 
-<img src="media/TianocoreTitlePageLogo.jpg" width="300" />
+<img src="/media/uefi_logo.png" width="200" />
 
-![](/media/uefi_logo.png)
+
 
 
