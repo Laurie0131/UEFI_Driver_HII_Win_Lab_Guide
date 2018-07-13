@@ -33,7 +33,13 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 1. **Open** C:\fw\edk2\MyWizardDriver 
 2. **Open** the following files for updating: 
-3.  **Update** the MyWizardDriverNVDataStruc.h file by copying and pasting the following GUID as shown below:
+  -  MyWizardDriverNVDataStruc.h
+  - MyWizardDriver.vfr
+  - MyWizardDriver.uni
+  - MyWizardDriver.h
+  - MyWizardDriver.c
+  - MyWizardDriver.inf
+3.  **Update** the MyWizardDriverNVDataStruc.h file by copying and pasting the following GUID as shown below: This GUID is used to communicate to the HII Database and Browser Engine
 ```c
   #define MYWIZARDDRIVER_FORMSET_GUID \
   { \
@@ -41,20 +47,68 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 }
 ```
 ![](/media/image8.png)
-4. **Save** MyWizardDriverNVDataStruc.h
+4. **Save** MyWizardDriverNVDataStruc.h 
+5. **Update** the **MyWizardDriver.vfr** file. **Delete** its contents and **replace** it with the following by copying and pasting: You’re adding a reference to the GUID and to the NVRAM storage where the configuration will be saved. In fact, you’re replacing most of the original .vfr.
+```
+#include "MyWizardDriverNVDataStruc.h"
+formset
+  guid     = MYWIZARDDRIVER_FORMSET_GUID,
+  title    = STRING_TOKEN(STR_SAMPLE_FORM_SET_TITLE),
+  help     = STRING_TOKEN(STR_SAMPLE_FORM_SET_HELP),
+  classguid = EFI_HII_PLATFORM_SETUP_FORMSET_GUID,
 
-5. **Save** MyWizardDriverNVDataStruc.h 
-6. **Update** the **MyWizardDriver.vfr** file. **Delete** its contents and **replace** it with the following by copying and pasting: 
+  //
+  // Define a Buffer Storage (EFI_IFR_VARSTORE)
+  //
+    varstore MYWIZARDDRIVER_CONFIGURATION,  // This is the data structure type
+    //varid = CONFIGURATION_VARSTORE_ID,      // Optional VarStore ID
+    name  = MWD_IfrNVData,                  // Define referenced name in vfr
+    guid  = MYWIZARDDRIVER_FORMSET_GUID;    // GUID of this buffer storage
 ```
- #include "MyWizardDriverNVDataStruc.h" 
+6.  Continue **adding** the remaining code to MyWizardDriver.vfr. This is a Enable/ Disable question for the setup menu in the form of a Check box.
 ```
+ form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE);
+    subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT);
+
+    subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT2);
  
-|  | Continue **adding** the remaining code to MyWizardDriver.vfr. |
-|  | form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE); |
-|  | **Save** MyWizardDriver.vfr |
-|  | Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: |
-|  | #langdef en &quot;English&quot; |
-|  | **Save** MyWizardDriver.uni |
+  //
+  // Define a checkbox to enable / disable the device
+  //
+      checkbox varid   = MWD_IfrNVData.MyWizardDriverChooseToEnable,
+                 prompt   = STRING_TOKEN(STR_CHECK_BOX_PROMPT),
+                 help     = STRING_TOKEN(STR_CHECK_BOX_HELP),
+                 //
+                 // CHECKBOX_DEFAULT indicate this checkbox is marked with 
+	      //   EFI_IFR_CHECKBOX_DEFAULT
+                 // 
+                 flags    = CHECKBOX_DEFAULT ,
+                 key      = 0,
+                 default  = 1,
+     endcheckbox;
+
+   endform;
+
+endformset;
+```
+7. **Save** MyWizardDriver.vfr 
+8. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+```
+#langdef en "English"
+
+#string STR_SAMPLE_FORM_SET_TITLE      #language en  "My Wizard Driver Sample Formset"
+#string STR_SAMPLE_FORM_SET_HELP       #language en  "Help for Sample Formset"
+#string STR_SAMPLE_FORM1_TITLE         #language en  "My Wizard Driver"
+
+#string STR_SUBTITLE_TEXT              #language en "My Wizard Driver Configuration"
+#string STR_SUBTITLE_TEXT2             #language en "Device XYZ Configuration"
+#string STR_CHECK_BOX_PROMPT           #language en "Enable My XYZ Device"
+                                      
+#string STR_CHECK_BOX_HELP             #language en "This is the help message for the enable My XYZ device. Check this box to enable this device."
+```
+
+9. **Save** MyWizardDriver.uni 
+```
 |  | Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: |
 |  | // Added for HII |
 |  |  |
@@ -107,7 +161,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 |  | **Press** “Enter” |
 |  | ****At the Shell prompt** type **Reset**** |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
-
+```
 
 You’ve completed the first lab and added strings and forms to setup HII for user configuration. However, **the data is not saved to NVRAM**. In the next lab, you’ll learn how to update HII to save data to NVRAM.
 
