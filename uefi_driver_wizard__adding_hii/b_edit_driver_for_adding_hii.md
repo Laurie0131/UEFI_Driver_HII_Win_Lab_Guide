@@ -67,7 +67,7 @@ formset
 ```
 6.  Continue **adding** the remaining code to MyWizardDriver.vfr. This is a Enable/ Disable question for the setup menu in the form of a Check box.
 <pre>
-```
+
  form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE);
     subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT);
 
@@ -91,31 +91,37 @@ formset
    endform;
 
 endformset;
-```
 </pre>
 7. **Save** MyWizardDriver.vfr 
 8. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
-<pre>
+
 ```
-#langdef en "English"
+  #langdef en "English"
 
-#string STR_SAMPLE_FORM_SET_TITLE      #language en  "My Wizard Driver Sample Formset"
-#string STR_SAMPLE_FORM_SET_HELP       #language en  "Help for Sample Formset"
-#string STR_SAMPLE_FORM1_TITLE         #language en  "My Wizard Driver"
+  #string STR_SAMPLE_FORM_SET_TITLE      #language en  "My Wizard  Driver Sample Formset"
+  #string STR_SAMPLE_FORM_SET_HELP       #language en  "Help for Sample Formset"
+  #string STR_SAMPLE_FORM1_TITLE         #language en  "My Wizard Driver"
 
-#string STR_SUBTITLE_TEXT              #language en "My Wizard Driver Configuration"
-#string STR_SUBTITLE_TEXT2             #language en "Device XYZ Configuration"
-#string STR_CHECK_BOX_PROMPT           #language en "Enable My XYZ Device"
+  #string STR_SUBTITLE_TEXT              #language en "My Wizard Driver Configuration"
+  #string STR_SUBTITLE_TEXT2             #language en "Device XYZ Configuration"
+  #string STR_CHECK_BOX_PROMPT           #language en "Enable My XYZ Device"
                                       
-#string STR_CHECK_BOX_HELP             #language en "This is the help message for the enable My XYZ device. Check this box to enable this device."
-```
-</Pre>
-9. **Save** MyWizardDriver.uni 
+  #string STR_CHECK_BOX_HELP             #language en "This is the help message for the enable My XYZ device. Check this box to enable this device."
 
 ```
-|  | Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: |
-|  | // Added for HII |
-|  |  |
+9. **Save** MyWizardDriver.uni 
+10. Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
+
+
+```
+// Added for HII
+#include <Protocol/HiiConfigRouting.h>  
+#include <Protocol/FormBrowser2.h>  
+#include <Protocol/HiiString.h> 
+#include <Library/DevicePathLib.h>
+```
+![](/media/image9.png)
+
 |  | To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “extern” statements: |
 |  | #define MYWIZARDDRIVER_DEV_SIGNATURE SIGNATURE_32 (&#039;m&#039;, &#039;w&#039;, &#039;d&#039;, &#039;r&#039;) |
 |  |  |
