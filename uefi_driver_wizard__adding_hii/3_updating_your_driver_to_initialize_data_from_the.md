@@ -129,9 +129,8 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 ![](/media/image24.png)
 16. **Press** “Enter” 
 17. **Type** Reset to return to the Visual Studio Command Prompt 
-![](/media/image25.png)
+![](/media/image25.png) 
  
-
 ---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.3
