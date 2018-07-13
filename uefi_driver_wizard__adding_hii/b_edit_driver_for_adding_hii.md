@@ -120,13 +120,59 @@ endformset;
 #include <Protocol/HiiString.h> 
 #include <Library/DevicePathLib.h>
 ```
+
 ![](/media/image9.png)
 
-|  | To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “extern” statements: |
-|  | #define MYWIZARDDRIVER_DEV_SIGNATURE SIGNATURE_32 (&#039;m&#039;, &#039;w&#039;, &#039;d&#039;, &#039;r&#039;) |
-|  |  |
-|  | **Save** MyWizardDriver.h |
-|  | Now onto the MyWizardDriver.c file. |
+11. To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “extern” statements: 
+
+
+```
+
+   #define MYWIZARDDRIVER_DEV_SIGNATURE SIGNATURE_32 ('m', 'w', 'd', 'r')  
+
+// Need a Data structure for HII routing and accessing
+typedef struct {
+  UINT32                           Signature;
+
+  EFI_HANDLE                       Handle;
+  MYWIZARDDRIVER_CONFIGURATION	   Configuration;  
+EFI_HANDLE                       DriverHandle[2];  
+  EFI_HII_HANDLE                   HiiHandle[2];
+  //
+  // Consumed protocol
+  //
+  EFI_HII_DATABASE_PROTOCOL        *HiiDatabase;  
+  EFI_HII_STRING_PROTOCOL          *HiiString; 
+  EFI_HII_CONFIG_ROUTING_PROTOCOL  *HiiConfigRouting;  
+  EFI_FORM_BROWSER2_PROTOCOL       *FormBrowser2; 
+
+  //
+  // Produced protocol
+  //
+  EFI_HII_CONFIG_ACCESS_PROTOCOL   ConfigAccess;  
+
+} MYWIZARDDRIVER_DEV;
+
+#define MYWIZARDDRIVER_DEV_FROM_THIS(a)  CR (a, MYWIZARDDRIVER_DEV, ConfigAccess, MYWIZARDDRIVER_DEV_SIGNATURE)
+
+#pragma pack(1)
+///
+/// HII specific Vendor Device Path definition.
+///
+typedef struct {
+  VENDOR_DEVICE_PATH             VendorDevicePath;
+  EFI_DEVICE_PATH_PROTOCOL       End;
+} HII_VENDOR_DEVICE_PATH;
+
+#pragma pack()
+
+
+```
+![](/media/image10.png)
+12.  **Save** MyWizardDriver.h 
+13.  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>
+In this step, you declare a local (to the module “m”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
+
 |  | //HII support |
 |  | **Locate** EFI_STATUS within the function MyWizardDriverDriverEntryPoint in the MyWizardDriver.c file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): |
 |  | // HII Locals |
@@ -171,7 +217,6 @@ endformset;
 |  | **Press** “Enter” |
 |  | ****At the Shell prompt** type **Reset**** |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
-```
 
 You’ve completed the first lab and added strings and forms to setup HII for user configuration. However, **the data is not saved to NVRAM**. In the next lab, you’ll learn how to update HII to save data to NVRAM.
 
