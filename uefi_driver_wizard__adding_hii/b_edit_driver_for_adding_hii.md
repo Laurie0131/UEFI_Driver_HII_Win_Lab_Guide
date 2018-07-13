@@ -31,16 +31,24 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 ## b. Edit Driver for adding HII {#b-edit-driver-for-adding-hii}
 
-| Step | Action |
-| --- | --- |
-|  | **Open** C:\fw\edk2\MyWizardDriver |
-|  | **Open** the following files for updating: |
-|  | **Update** the MyWizardDriverNVDataStruc.h file by copying and pasting the following GUID as shown below: |
-|  | #define MYWIZARDDRIVER_FORMSET_GUID \ |
-|  |  |
-|  | **Save** MyWizardDriverNVDataStruc.h |
-|  | **Update** the **MyWizardDriver.vfr** file. **Delete** its contents and **replace** it with the following by copying and pasting: |
-|  | #include &quot;MyWizardDriverNVDataStruc.h&quot; |
+1. **Open** C:\fw\edk2\MyWizardDriver 
+2. **Open** the following files for updating: 
+3.  **Update** the MyWizardDriverNVDataStruc.h file by copying and pasting the following GUID as shown below:
+```c
+  #define MYWIZARDDRIVER_FORMSET_GUID \
+  { \
+0x5481db09, 0xe5f7, 0x4158, 0xa5, 0xc5, 0x2d, 0xbe, 0xa4, 0x95, 0x34, 0xff \
+}
+```
+![](/media/image8.png)
+4. **Save** MyWizardDriverNVDataStruc.h
+
+5. **Save** MyWizardDriverNVDataStruc.h 
+6. **Update** the **MyWizardDriver.vfr** file. **Delete** its contents and **replace** it with the following by copying and pasting: 
+```
+ #include "MyWizardDriverNVDataStruc.h" 
+```
+ 
 |  | Continue **adding** the remaining code to MyWizardDriver.vfr. |
 |  | form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE); |
 |  | **Save** MyWizardDriver.vfr |
@@ -99,6 +107,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 |  | **Press** “Enter” |
 |  | ****At the Shell prompt** type **Reset**** |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+
 
 You’ve completed the first lab and added strings and forms to setup HII for user configuration. However, **the data is not saved to NVRAM**. In the next lab, you’ll learn how to update HII to save data to NVRAM.
 
