@@ -130,7 +130,7 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 16. **Press** “Enter” 
 17. **Type** Reset to return to the Visual Studio Command Prompt 
 ![](/media/image25.png)
-
+ 
 
 ---
 
