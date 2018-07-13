@@ -3,7 +3,7 @@
 * [UEFI\_Driver\_HII\_Win\_Lab\_Guide](README.md)
 * [UEFI Driver Wizard – Adding HII](uefi_driver_wizard__adding_hii/README.md)
   * [1. Adding Strings and Forms to Setup HII for User Configuration](uefi_driver_wizard__adding_hii/1_adding_strings_and_forms_to_setup_hii_for_user_c.md)
-  * [Setup for Lab adding HII ](uefi_driver_wizard__adding_hii/a_setup_for_lab_adding_hii.md)
+  * [a. Setup for Lab adding HII ](uefi_driver_wizard__adding_hii/a_setup_for_lab_adding_hii.md)
   * [b. Edit Driver for adding HII  ](uefi_driver_wizard__adding_hii/b_edit_driver_for_adding_hii.md)
   * [2. Updating HII to Save Data Settings](uefi_driver_wizard__adding_hii/2_updating_hii_to_save_data_settings.md)
   * [3. Updating your driver to initialize data from the VFR data to the HII Database](uefi_driver_wizard__adding_hii/3_updating_your_driver_to_initialize_data_from_the.md)
@@ -20,6 +20,6 @@
 * [Microsoft Windows 10 – Visual Studio command prompt](microsoft_windows_10__visual_studio_command_prompt.md)
 * [Reference](reference.md)
 * [Microsoft Windows and Visual Studio Matrix ](microsoft_windows_and_visual_studio_matrix/README.md)
-  * [Glossary of UEFI Terms and Acronyms](microsoft_windows_and_visual_studio_matrix/glossary_of_uefi_terms_and_acronyms.md)
-  * [Helpful Links](microsoft_windows_and_visual_studio_matrix/helpful_links.md)
+* [Glossary of UEFI Terms and Acronyms](microsoft_windows_and_visual_studio_matrix/glossary_of_uefi_terms_and_acronyms.md)
+* [Helpful Links](microsoft_windows_and_visual_studio_matrix/helpful_links.md)
 

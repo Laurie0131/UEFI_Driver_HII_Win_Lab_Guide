@@ -1,8 +1,8 @@
 {
   "variables" : {
     "draft"   : "yes",
-    "title"   : "Security Enhancement to Mitigate Buffer Overflow in UEFI",
-    "version" : "Revision 02.0"
+    "title"   : "UEFI Driver HII Win Lab Guide",
+    "version" : "Revision 01.0"
   },
 
   "plugins": ["puml"],

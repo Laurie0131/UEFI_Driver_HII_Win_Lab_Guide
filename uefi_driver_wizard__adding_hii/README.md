@@ -1,5 +1,5 @@
 <!--- @file
-  README.md for efi-driver-wizard-adding-hii
+  README.md for uefi-driver-wizard-adding-hii
 
   Copyright (c) 2018, Intel Corporation. All rights reserved.<BR>
 
