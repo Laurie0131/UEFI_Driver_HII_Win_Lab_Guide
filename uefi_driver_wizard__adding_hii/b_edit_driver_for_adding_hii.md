@@ -66,6 +66,7 @@ formset
     guid  = MYWIZARDDRIVER_FORMSET_GUID;    // GUID of this buffer storage
 ```
 6.  Continue **adding** the remaining code to MyWizardDriver.vfr. This is a Enable/ Disable question for the setup menu in the form of a Check box.
+<pre>
 ```
  form formid = 1, title = STRING_TOKEN(STR_SAMPLE_FORM1_TITLE);
     subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT);
@@ -91,8 +92,10 @@ formset
 
 endformset;
 ```
+</pre>
 7. **Save** MyWizardDriver.vfr 
 8. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+<pre>
 ```
 #langdef en "English"
 
@@ -106,8 +109,9 @@ endformset;
                                       
 #string STR_CHECK_BOX_HELP             #language en "This is the help message for the enable My XYZ device. Check this box to enable this device."
 ```
-
+</Pre>
 9. **Save** MyWizardDriver.uni 
+
 ```
 |  | Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: |
 |  | // Added for HII |
