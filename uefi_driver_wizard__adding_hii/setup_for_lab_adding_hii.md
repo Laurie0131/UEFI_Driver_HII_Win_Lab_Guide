@@ -1,4 +1,4 @@
-## Setup for Lab adding HII {#setup-for-lab-adding-hii}
+## a. Setup for Lab adding HII {#setup-for-lab-adding-hii}
 
 Complete [Lab Setup](../lab_setup/README.md) to configure for building with Visual Studio.
 
