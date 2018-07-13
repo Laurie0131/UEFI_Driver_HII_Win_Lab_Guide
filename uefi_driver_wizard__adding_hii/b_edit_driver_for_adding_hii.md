@@ -338,3 +338,5 @@ gEfiHiiDatabaseProtocolGuid                 ## CONSUMES
 You’ve completed the first lab and added strings and forms to setup HII for user configuration. However, **the data is not saved to NVRAM**. In the next lab, you’ll learn how to update HII to save data to NVRAM.
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.1A
+
+### end of Lab 1
