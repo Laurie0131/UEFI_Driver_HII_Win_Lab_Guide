@@ -121,7 +121,6 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 ![](/media/image19.png)
 **Press** "Enter"
 ![](/media/image20.png)
-**_Note_**: Once you hit “Enter”, notice that your form is now displayed with a choice to enable your Device. Also notice the titles and help strings that are in the .UNI file you edited. 
 11. Test by **Press** the space bar to Enable and Disable the “Enable My XYZ Device” to change its value from**:** `[X]` to `[ ]` <br> **Note**: Notice the “`Configuration changed`” message at the menu bottom. 
 12. **Press** “F10” 
 13. **Press **“Escape” to exit
@@ -142,25 +141,34 @@ NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDrive
 ### _b._ Add your Driver to the platform {#b-add-your-driver-to-the-platform}
 
 As of now, your driver needs to be soft loaded each time from the shell prompt. In this lab, you’ll update the platform .FDF file to force your driver to load as part of the platform UEFI driver.
+1. **Open **to update:**** C:\fw\edk2\Nt32PkgNt32Pkg.Fdf 
+2. Add the following code (as shown below before “`!if $(BUILD_NEW_SHELL) == TRUE`" ):
+ `INF MyWizardDriver/MyWizardDriver.inf `
+ ![](/media/image45.png)
+3. **Save** Nt32pkg.fdf 
 
-| **Step** |  |
-| --- | --- |
-|  | **Open **to update:**** C:\fw\edk2\Nt32PkgNt32Pkg.Fdf |
-|  | INF MyWizardDriver/MyWizardDriver.inf |
-|  | **Save** Nt32pkg.fdf |
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-| 
+1. **Open** the Visual Studio Command Prompt 
+2.  **Type** build 
+3. **Type** build run 
+![](/media/image17.png)
+4.  **Type** exit at the shell prompt
+5.  Now at the setup front page menu,** select **“Device Manager”
+![](/media/image18.png)
+6. **Press** “Enter”  to enter **“Device Manager”**
+7. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**<Br>**Notice** that the My Wizard Driver Sample Formset is added without having to issue the “**Load**” command from the shell prompt.
+![](/media/image47.png)
+8. **Press **“Escape” to exit
+9. **Press **“Escape” to exit the “Device Manager” Page
+10. **Press **Up Arrow to “Continue”
+![](/media/image24.png)
+11. **Press** “Enter” 
+12. **Type** Reset to return to the Visual Studio Command Prompt 
+![](/media/image25.png)
 
- | **At the Shell prompt type: **exit**** |
-|  | **Press** “Enter” |
-|  | ****Now at the setup front page menu press the down arrow to** “Device Manager”** |
-|  | **Press** “Enter” |
-|  | **Notice** that the My Wizard Driver Sample Formset is added without having to issue the “Load” command from the shell prompt. |
-|  | **Press **“Escape”**** |
-|  | **Press **Up arrow to “Continue”**** |
-|  | **Press “Enter”** |
-|  | **Type** Reset |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+---
+
+For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.3
+
+NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean
+
+#### End of Lab 3
