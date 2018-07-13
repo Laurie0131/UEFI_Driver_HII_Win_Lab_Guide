@@ -33,13 +33,17 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 In this lab, you’ll learn how to modify and update your driver’s HII code to save the users settings into NVRAM. The UEFI Driver Wizard created the protocols for your driver to update and interface with the HII browser engine and database. The HII configuration access Protocol functions for MyWizardDriver are in the file C:\fw\edk2\MyWizardDriver\HiiConfigAccess.c. This next lab will install these protocols and update them to save the user data from the HII menus into NVRAM.
 
-| Step | Action |
-| --- | --- |
-|  | **Update** the MyWizardDriver.c file |
-|  | **Add** the following local variable declarations in the function MyWizardDriverDriverEntryPoint Entry Point (as shown below Approx. line 185 ): |
-|  | EFI_HII_STRING_PROTOCOL *HiiString; |
-|  |  |
-|  | **Add** the following code to locate and store consumed protocols **before** the |
+1. **Update** the` MyWizardDriver.c `file <BR> Your driver will need to keep track of the consumed protocols in it’s own data structure so it will need to declare local pointers to these and then store them in its own private context data structure.
+2. **Add** the following local variable declarations in the function `MyWizardDriverDriverEntryPoint` Entry Point (as shown below Approx. line 185 ): 
+```
+EFI_HII_STRING_PROTOCOL         *HiiString;
+EFI_FORM_BROWSER2_PROTOCOL      *FormBrowser2;
+EFI_HII_CONFIG_ROUTING_PROTOCOL *HiiConfigRouting;
+```
+![](/media/image27.png)
+3. **Add** the following code to locate and store consumed protocols **before** the `// Publish sample Fromset and config access`  comment (as shown below Approx. line 227): <br> The reason is to Locate the Hii Database, Hii String, Hii Form browser and config routing protocols and store their pointers into the Private context data structure for your driver to access.
+
+
 |  | // |
 |  |  |
 |  | ****Since the Hii Database Protocol was located earlier in the code with the previous code insertion and is no longer necessary,** comment out **the old OpenProtocol code with the “//” (approx. lines 289-298, as shown below) and** add the comment **// Done above**** |
