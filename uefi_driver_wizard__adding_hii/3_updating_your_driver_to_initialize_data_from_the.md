@@ -105,6 +105,8 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 ```
 ![](/media/image44.png)
 13.  **Save** the MyWizardDriver.c file 
+
+
 #### Build and test MyWizardDriver
 
 1. **Open** the Visual Studio Command Prompt 

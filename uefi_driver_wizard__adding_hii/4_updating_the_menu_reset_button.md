@@ -37,23 +37,25 @@ The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDr
 (1). **Update** the MyWizardDriver.vfr file 
 (2). **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
 defaultstore MyStandardDefault,
-<pre>
+
+```
 
     prompt =    STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT),
     attribute = 0x0000;        // Default ID: 0000 standard default
 
-</pre>
-Pic__45 
+```
+![](/media/image48.png)
 (3). **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
-<pre>
 
+```
    resetbutton
       defaultstore = MyStandardDefault,
       prompt   = STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT_RESET),
       help     = STRING_TOKEN(STR_STANDARD_DEFAULT_HELP),
     endresetbutton;
-</pre>
-Pic__46
+
+```
+![](/media/image49.png)
 (4). **Save** MyWizardDriver.vfr 
 (5). **Update** the MyWizardDriver.uni file 
 (6). **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
@@ -67,24 +69,28 @@ Pic__46
 (7). **Save** MyWizardDriver.uni 
 
 
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type** exit |
-|  | **Press** “Enter” |
-|  | Now at the setup front page menu press the **down arrow** to **“Device Manager”** |
-|  | **Press** “Enter” |
-|  | Inside the Device Manager menu press the down arrow to **“My Wizard Driver Sample Formset”** |
-|  | **Access** the My Wizard Driver menu and **notice** the item “Reset to Standard Default” |
-|  | **Press Down Arrow to “**Reset to Standard Default” |
-|  | **Press** “Enter |
-|  | **Notice** the “**Configuration changed**” message at the bottom of the menu |
-|  | **To Exit Press** “Escape” then “Y” |
-|  | **To Exit the “Device Manager” Page: Press** “Escape” |
-|  | **Press** Up Arrow to **“**Continue**”** |
-|  | **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt
+2. **Type** build
+3. **Type** build run
+4. At the UEFI Shell prompt,type **exit**
+![](/media/image17.png)
+5. Now at the setup front page menu,** select **“Device Manager”
+6. **Press** “Enter” to enter **“Device Manager”**
+7. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
+8. **Access** the My Wizard Driver menu and **notice** the item “Reset to Standard Default” 
+![](/media/image50.png)
+9. **Press Down Arrow to “**Reset to Standard Default” 
+10. **Press** “Enter 
+11. **Notice** the “**Configuration changed**” message at the bottom of the menu 
+12. **To Exit Press** “Escape” then “Y” 
+13. **To Exit the “Device Manager” Page: Press** “Escape” 
+14. **Press** Up Arrow to “**Continue**” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
+![](/media/image51.png)
+15. **Press** “Enter” to return to the Visual Studio Command Prompt 
+![](/media/image26.png)
 ---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.4
