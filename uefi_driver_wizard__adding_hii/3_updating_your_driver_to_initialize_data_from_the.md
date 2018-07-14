@@ -76,9 +76,9 @@ MdeModulePkg/MdeModulePkg.dec
 // End code
 ```
 ![](/media/image42.png)
-11. Modify the following lines: 
-`@~338`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
-`@~342`: remove line: `ZeroMem (&PrivateData->Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));`
+11. Modify the following lines: <br>
+`@~338`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”<br>
+`@~342`: remove line: `ZeroMem (&PrivateData->Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));`<br>
 `@~347`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
 ![](/media/image43_1.JPG)
 12. **Add** the following code to the MyWizardDriverDriverEntryPoint entry point code at approximately line 349 before
@@ -105,6 +105,33 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 ```
 ![](/media/image44.png)
 13.  **Save** the MyWizardDriver.c file 
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt 
+2.  **Type** build 
+3. **Type** build run 
+4.  **At the UEFI Shell prompt,type** fs0: 
+5.  **Type** Load MyWizardDriver.efi 
+6.  **Press** “Enter” 
+![](/media/image17.png)
+7.  **Type** exit 
+8.  Now at the setup front page menu,** select **“Device Manager”
+![](/media/image18.png)
+9. **Press** “Enter”  to enter **“Device Manager”**
+10. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
+![](/media/image19.png)
+**Press** "Enter"
+![](/media/image20.png)
+11. Test by **Press** the space bar to Enable and Disable the “Enable My XYZ Device” to change its value from**:** `[X]` to `[ ]` <br> **Note**: Notice the “`Configuration changed`” message at the menu bottom. 
+12. **Press** “F10” 
+13. **Press **“Escape” to exit
+14. **Press **“Escape” to exit the “Device Manager” Page
+15. **Press **Up Arrow to “Continue”
+![](/media/image24.png)
+16. **Press** “Enter” 
+17. **Type** Reset to return to the Visual Studio Command Prompt 
+![](/media/image25.png)
+ 
 
 ---
 
