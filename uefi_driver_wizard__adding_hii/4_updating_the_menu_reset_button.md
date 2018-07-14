@@ -37,25 +37,34 @@ The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDr
 1. **Update** the MyWizardDriver.vfr file 
 2. **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
 defaultstore MyStandardDefault,
-```
-    prompt      = STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT),
-    attribute   = 0x0000;        // Default ID: 0000 standard default
+<pre>
 
-```
+    prompt =    STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT),
+    attribute = 0x0000;        // Default ID: 0000 standard default
+
+</pre>
 Pic__45 
 3. **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
-```
+<pre>
+
    resetbutton
       defaultstore = MyStandardDefault,
       prompt   = STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT_RESET),
       help     = STRING_TOKEN(STR_STANDARD_DEFAULT_HELP),
     endresetbutton;
-
-```
+</pre>
 Pic__46
 4. **Save** MyWizardDriver.vfr 
 5. **Update** the MyWizardDriver.uni file 
 6. **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
+<pre>
+#string STR_STANDARD_DEFAULT_PROMPT    #language en "Standard Default"
+#string STR_STANDARD_DEFAULT_PROMPT_RESET    #language en "Reset to Standard Default"
+#string STR_STANDARD_DEFAULT_HELP      #language en "This will reset all the Questions to their standard default value"
+</pre>
+
+
+
 
 |  | #string STR_STANDARD_DEFAULT_PROMPT #language en &quot;Standard Default&quot; |
 |  | **Save** MyWizardDriver.uni |
