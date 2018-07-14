@@ -64,13 +64,9 @@ Pic__46
 #string STR_STANDARD_DEFAULT_HELP      #language en "This will reset all the Questions to their standard default value"
 
 ```
-(7). **Next**
+(7). **Save** MyWizardDriver.uni 
 
 
-
-
-|  | #string STR_STANDARD_DEFAULT_PROMPT #language en &quot;Standard Default&quot; |
-|  | **Save** MyWizardDriver.uni |
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
 |  | **Type** build run |
