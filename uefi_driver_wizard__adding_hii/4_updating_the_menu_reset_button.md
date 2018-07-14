@@ -32,20 +32,31 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 In this lab, you’ll learn how to add a resetbutton to your driver’s form menu. It’s time to add more configuration fields to your menu, enabling users to modify more fields now that you’ve built a driver that 1) saves data from forms into NVRAM 2) updates data from the .VFR forms and 3) builds into the platform drivers.
 
-The next set of labs will update .VFR, MyWizardDriver.vfr, and UNI MyWizardDriver.uni string files to incrementally add a reset button (Lab 4), pop-up box (Lab 5), string name (Lab 6), and numeric hex value (Lab 7) to your driver’s form menu:
+The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDriver.uni` string files to incrementally add a reset button (Lab 4), pop-up box (Lab 5), string name (Lab 6), and numeric hex value (Lab 7) to your driver’s form menu:
 
-| **Step** | **Action** |
-| --- | --- |
-|  | **Update** the MyWizardDriver.vfr file |
-|  | **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): |
-|  | defaultstore MyStandardDefault, |
-|  |  |
-|  | **Add** the folowing code before the “endform” (as shown below Approx. Line 55): |
-|  | resetbutton |
-|  |  |
-|  | **Save** MyWizardDriver.vfr |
-|  | **Update** the MyWizardDriver.uni file |
-|  | **Add** the following strings at the end of the file to support the “**STR_**“ referenced added in the .vfr file: |
+1. **Update** the MyWizardDriver.vfr file 
+2. **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
+defaultstore MyStandardDefault,
+```
+    prompt      = STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT),
+    attribute   = 0x0000;        // Default ID: 0000 standard default
+
+```
+Pic__45 
+3. **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
+```
+   resetbutton
+      defaultstore = MyStandardDefault,
+      prompt   = STRING_TOKEN(STR_STANDARD_DEFAULT_PROMPT_RESET),
+      help     = STRING_TOKEN(STR_STANDARD_DEFAULT_HELP),
+    endresetbutton;
+
+```
+Pic__46
+4. **Save** MyWizardDriver.vfr 
+5. **Update** the MyWizardDriver.uni file 
+6. **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
+
 |  | #string STR_STANDARD_DEFAULT_PROMPT #language en &quot;Standard Default&quot; |
 |  | **Save** MyWizardDriver.uni |
 |  | In the Visual Studio Command Prompt, **type** build |
