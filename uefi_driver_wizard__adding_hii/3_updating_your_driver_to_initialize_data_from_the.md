@@ -41,6 +41,24 @@ For this lab you will update the following files: MyWizardDriver.inf, MyWizardDr
 ```
 MdeModulePkg/MdeModulePkg.dec
 ```
+![](/media/image38.png)
+**_Note_**: For other functions from the HII Library, open the .chm file “MdeModulePkg Document.chm” and search for `HiiLib.h`. 
+3. **Add** the following library class (as shown below): <br>
+`HiiLib` <br>
+![](/media/image39.png)
+4. **Save** MyWizardDriver.inf 
+5. **Update** the MyWizardDriver.h file 
+6. **Add** the following code (as shown below):                <br> `#include <Library/HiiLib.h>`<br>
+![](/media/image40.png)
+7. **Save** MyWizardDriver.h 
+8. **Update** the MyWizardDriver.c file 
+9. **Add Locals:** first add 2 locals for your drivers configuration buffer and a boolean flag from the Hii Library calls <br>Add the following at Approx. Line 190. 
+```
+  MYWIZARDDRIVER_CONFIGURATION     *Configuration;
+  BOOLEAN                          ActionFlag;
+```
+![](/media/image41.png)
+10. next
 
 ---
 
