@@ -66,7 +66,10 @@ The next set of labs will update .VFR, MyWizardDriver.vfr, and UNI MyWizardDrive
 |  | **Press** Up Arrow to **“**Continue**”** |
 |  | **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.4
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean.
+
+### End of Lab 4
