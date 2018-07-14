@@ -34,8 +34,8 @@ In this lab, you’ll learn how to add a resetbutton to your driver’s form men
 
 The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDriver.uni` string files to incrementally add a reset button (Lab 4), pop-up box (Lab 5), string name (Lab 6), and numeric hex value (Lab 7) to your driver’s form menu:
 
-1. **Update** the MyWizardDriver.vfr file 
-2. **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
+(1). **Update** the MyWizardDriver.vfr file 
+(2). **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
 defaultstore MyStandardDefault,
 <pre>
 
@@ -44,7 +44,7 @@ defaultstore MyStandardDefault,
 
 </pre>
 Pic__45 
-3. **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
+(3). **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
 <pre>
 
    resetbutton
@@ -54,14 +54,17 @@ Pic__45
     endresetbutton;
 </pre>
 Pic__46
-4. **Save** MyWizardDriver.vfr 
-5. **Update** the MyWizardDriver.uni file 
-6. **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
-<pre>
+(4). **Save** MyWizardDriver.vfr 
+(5). **Update** the MyWizardDriver.uni file 
+(6). **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
+
+```
 #string STR_STANDARD_DEFAULT_PROMPT    #language en "Standard Default"
 #string STR_STANDARD_DEFAULT_PROMPT_RESET    #language en "Reset to Standard Default"
 #string STR_STANDARD_DEFAULT_HELP      #language en "This will reset all the Questions to their standard default value"
-</pre>
+
+```
+(7). **Next**
 
 
 
