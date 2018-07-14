@@ -35,7 +35,7 @@ In this lab, you’ll learn how to update your driver to initialize the data acc
 ### _a._ Add HII Library Calls to Your Driver {#a-add-hii-library-calls-to-your-driver}
 
 For this lab you will update the following files: MyWizardDriver.inf, MyWizardDriver.h, and MyWizardDriver.c
-1. **Update** the MyWizardDriver.inf file 
+1. **Update** the MyWizardDriver.inf file  
 2. **Add** the following package (as shown below):  <br>The HII Library in the MdeModulePkg has many functions to help with Communication to/from the Hii Database and Hii forms. One function call HiiSetToDefaults will compare the default settings from the .VFR file and update the driver’s configuration buffer according to the settings in the .VFR file.        <br>
 
 ```
