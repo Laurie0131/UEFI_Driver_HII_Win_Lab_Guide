@@ -40,7 +40,6 @@ For this lab you will update the following files: MyWizardDriver.inf, MyWizardDr
 
 ```
 MdeModulePkg/MdeModulePkg.dec
-
 ```
 ![](/media/image38.png)
 **_Note_**: For other functions from the HII Library, open the .chm file “MdeModulePkg Document.chm” and search for `HiiLib.h`. 
