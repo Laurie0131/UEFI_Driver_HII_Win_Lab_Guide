@@ -30,6 +30,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 # Lab Setup {#lab-setup}
 
+
 | **Step** | Action |
 | --- | --- |
 |  | Download the [UEFI Training Materials](https://github.com/Laurie0131/Lab_Material_FW) (accept any security notifications) |
