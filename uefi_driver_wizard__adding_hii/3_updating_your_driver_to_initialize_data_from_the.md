@@ -58,7 +58,53 @@ MdeModulePkg/MdeModulePkg.dec
   BOOLEAN                          ActionFlag;
 ```
 ![](/media/image41.png)
-10. next
+10. **Add** the following to the MyWizardDriverDriverEntryPoint entry point funtion to line 319, approximately after “`BufferSize =`” as shown below 
+```
+// Begin code
+  
+  //
+  // Initialize configuration data
+  //
+  Configuration = &PrivateData->Configuration;
+  ZeroMem (Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));
+  
+  //
+  // Try to read NV config EFI variable first
+  //
+  ConfigRequestHdr = HiiConstructConfigHdr (&mMyWizardDriverFormSetGuid, mIfrVariableName, mDriverHandle[0]);
+  ASSERT (ConfigRequestHdr != NULL);
+// End code
+```
+![](/media/image42.png)
+11. Modify the following lines: 
+`@~338`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
+`@~342`: remove line: `ZeroMem (&PrivateData->Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));`
+`@~347`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
+![](/media/image43_1.JPG)
+12. **Add** the following code to the MyWizardDriverDriverEntryPoint entry point code at approximately line 349 before
+ `// Install Driver Supported EFI Version Protocol onto ImageHandle`
+You’re deleting the “`}`" and replacing it with the following code (as shown below).  With this replacement we are adding an “`else`” to the “`if`” statement: <br>Note the “`}`” on line 361 is still matching the initial if statement.  Make sure you do not have a duplicate “`}`”
+```
+//Begin code
+    //
+    // EFI variable for NV config doesn't exist, we should build this variable
+    // based on default values stored in IFR
+    //
+    ActionFlag = HiiSetToDefaults (ConfigRequestHdr, EFI_HII_DEFAULT_CLASS_STANDARD);
+    ASSERT (ActionFlag);
+  } else {
+    //
+    // EFI variable does exist and Validate Current Setting
+    //
+    ActionFlag = HiiValidateSettings (ConfigRequestHdr);
+    ASSERT (ActionFlag);
+  }  // Match if (EFI_ERROR (Status)) 
+  FreePool (ConfigRequestHdr);
+// end HII
+// End code
+```
+![](/media/image44.png)
+13.  **Save** the MyWizardDriver.c file 
 
 ---
 
