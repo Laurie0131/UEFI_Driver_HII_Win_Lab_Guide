@@ -103,45 +103,30 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 3. **Type** build run
 4. At the UEFI Shell prompt,type **exit**<br>
 ![](/media/image46.png)
-5. Now at the setup front page menu,** select “Device Manager”
-6. **Press** “Enter” to enter “Device Manager”
-7. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
-8. **Access** the My Wizard Driver menu 
-PIC__image50.png
-10. **Press** “Enter
-11. **Notice** the “**Configuration changed**” message at the bottom of the menu
-12. **To Exit Press** “Escape” then “Y”
-13. **To Exit the “Device Manager” Page: Press** “Escape”
-14. **Press** Up Arrow to “**Continue**” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
-PIC__image51.png)
-15. **Press** “Enter” to return to the Visual Studio Command Prompt
+5. Now at the setup front page menu,** select** “Device Manager”
+6. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter"
+7. **Down Arrow** to “Select Base Address”
+![](/media/image55.png)<br>
+**Notice** the Pop up menu 
+8. **Select** “480 Hex” then **press** "Enter"<br>
+**Observe**: the “**Configuration changed**” message at the bottom
+![](/media/image56.png)
+9. **Test** the “`grayoutif`” by selecting “Enable My XYZ Device” then **press** the “Space” bar to toggle off or “Disabled”.<br>
+**Notice** the “Select Base Address” is now grayed out and not Selectable. 
+![](/media/image57.png) 
+10. **Press** “Space” again to Enable
+11. To Exit **Press ** “Escape” then “Y” or “F10” then “Escape”
+12. To Exit the “Device Manager” Page: **Press** “Escape”
+13. **Press** Up Arrow to “Continue”
+14. At the Shell Prompt **type**: "`dmpstore -all`"
+![](/assets/image58-59.JPG)
+15. Observe file MyWizardDriverNVDataStruc.h <br>By updating MyWizardDriverNVDataStruc.h, our data structure stored in NVRAM is named `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`.<BR>
+**Notice** that the base address byte is the next to the last byte in the data structure `MWD_IfrNVData.MyWizardDriverBaseAddress` where `02 == 400H`, `01 == 480H`, and `00 == 500H` <br>
+Notice the NVRAM Variable with the value of `480H` will have a true value of `01`.
+16. **Type** “reset” **at the Shell prompt
+17. **Press** “Enter” to return to the Visual Studio Command Prompt
 ![](/media/image26.png)
 
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type** exit |
-|  | **Press** “Enter” |
-|  | ****Now at the setup front page menu press the** down arrow **to** “Device Manager”** |
-|  | **Press** “Enter” |
-|  | ****Inside the Device Manager menu press the down arrow to** “My Wizard Driver Sample Formset”** |
-|  | ****Down Arrow to “Select Base Address”**** |
-|  | **Press** “Enter” **Notice** the Pop up menu |
-|  | **Select** “480 Hex” |
-|  | **Press** “Enter” |
-|  | **Observe: **Notice the “**Configuration changed**” message at the bottom**** |
-|  | ****Test the** “grayoutif” **by selecting “Enable My XYZ Device” then press the “Space” bar to toggle off or “Disabled”.**** |
-|  | **Notice **the “Select Base Address”** **is now grayed out and not selectable**** |
-|  | **Press **“Space” again to Enable**** |
-|  | **To Exit Press **“Escape” then “Y” or “F10” then “Escape”**** |
-|  | **To Exit the “Device Manager” Page: Press **“Escape”**** |
-|  | **Press Up Arrow to “**Continue**”** |
-|  | **At the Shell Prompt type: dmpstore -all** |
-|  |  |
-|  | File MyWizardDriverNVDataStruc.h |
-|  | **Type “reset” **at the Shell prompt**** |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
 
 ---
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.5
