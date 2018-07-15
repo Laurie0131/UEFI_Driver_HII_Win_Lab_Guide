@@ -28,22 +28,70 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## 5\. Updating the Menu: Pop-up Box {#5-updating-the-menu-pop-up-box}
+## Lab 5\. Updating the Menu: Pop-up Box {#5-updating-the-menu-pop-up-box}
 
 In this lab, you’ll learn how to add a _pop-up box_ to your driver’s form menu by using the “**oneof**” VFR term. We will also only update the MyWizardDriver.vfr and MyWizardDriver.uni files.
+![](/media/image52.png)
+###### Figure 5 My Wizard Driver with a pop-up box
 
-Figure 5 My Wizard Driver with a pop-up box
+**Background Information **
+The VFR term “**oneof**” will declare a pop-up menu. The user then selects one field that will dictate the value stored in the NVRAM variable.  Looking at Figure 6 above, there are three values:
 
-| Step | Action |
-| --- | --- |
-|  | **Illegal nested table :** ValueDisplayString token0500 HexSTR_ONE_OF_TEXT31480 HexSTR_ONE_OF_TEXT22400 HexSTR_ONE_OF_TEXT1 |
-|  | **Update** the MyWizardDriver.vfr file |
-|  | **Add** the following code before the “resetbutton” statement (approximately line 53) |
-|  | // |
-|  |  |
-|  | **Save** the MyWizardDriver.vfr file |
-|  | **Update** the MyWizardDriver.uni file |
-|  | **Add** the following code to the end of the file (as shown below): |
+| Value | Display | String token |
+| --- | --- | --- |
+| 0 | 500 Hex | STR\_ONE\_OF\_TEXT3 |
+| 1 | 480 Hex | STR\_ONE\_OF\_TEXT2 |
+| 2 | 400 Hex | STR\_ONE\_OF\_TEXT1 |
+
+For this lab you will add code to give your driver menu a pop-up menu item by defining a “**oneof**” item.  Also, if the device is “**disabled**”, then use the VFR term “**grayoutif**” statement so that the pop-up menu is not accessible and cannot be changed.  The browser engine will use the configuration variable `MWD_IfrNVData.MyWizardDriverChooseToEnable` with a value of  `0x0` to determine if the device is enabled or disabled
+
+
+1. **Update** the MyWizardDriver.vfr file 
+2.  **Add** the following code before the “`resetbutton`” statement (approximately line 53) 
+```
+// Begin code
+    //
+    // Define oneof (EFI_IFR_ONE_OF)
+    //
+   grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
+
+    oneof name = MyOneOf2,                                // Define reference name for Question
+      varid   = MWD_IfrNVData.MyWizardDriverBaseAddress, 
+      // Use "DataStructure.Member" to reference Buffer Storage
+      prompt  = STRING_TOKEN(STR_ONE_OF_PROMPT),
+      help    = STRING_TOKEN(STR_ONE_OF_HELP),
+      //
+      // Define an option (EFI_IFR_ONE_OF_OPTION)
+      //
+      option text = STRING_TOKEN(STR_ONE_OF_TEXT3), value = 0x0, flags = 0;
+      option text = STRING_TOKEN(STR_ONE_OF_TEXT2), value = 0x1, flags = 0;
+      //
+      // DEFAULT indicate this option will be marked with  
+      //  EFI_IFR_OPTION_DEFAULT
+      //
+      option text = STRING_TOKEN(STR_ONE_OF_TEXT1), value = 0x2, 
+          flags = DEFAULT;
+    endoneof;
+   endif;
+// end code
+```
+![](/media/image53.png)
+3. **Save** the MyWizardDriver.vfr file 
+4. **Update** the MyWizardDriver.uni file 
+5. **Add** the following code to the end of the file (as shown below):
+
+
+```
+// begin code
+// end code
+```
+
+
+
+
+ 
+  
+    
 |  | **#string STR_ONE_OF_PROMPT #language en &quot;Select Base Address&quot;** |
 |  |  |
 |  | **Save** MyWizardDriver.uni |
@@ -76,3 +124,5 @@ Figure 5 My Wizard Driver with a pop-up box
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.5
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean.
+
+#### End of Lab 5

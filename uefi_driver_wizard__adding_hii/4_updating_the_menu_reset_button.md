@@ -28,7 +28,7 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## 4\. Updating the Menu: Reset Button {#4-updating-the-menu-reset-button}
+## Lab 4\. Updating the Menu: Reset Button {#4-updating-the-menu-reset-button}
 
 In this lab, you’ll learn how to add a resetbutton to your driver’s form menu. It’s time to add more configuration fields to your menu, enabling users to modify more fields now that you’ve built a driver that 1) saves data from forms into NVRAM 2) updates data from the .VFR forms and 3) builds into the platform drivers.
 
