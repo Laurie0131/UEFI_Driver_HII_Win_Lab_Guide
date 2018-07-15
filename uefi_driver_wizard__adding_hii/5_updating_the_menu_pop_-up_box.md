@@ -96,6 +96,26 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 (6). **Save** MyWizardDriver.uni 
 
 
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt
+2. **Type** build
+3. **Type** build run
+4. At the UEFI Shell prompt,type **exit**<br>
+![](/media/image46.png)
+5. Now at the setup front page menu,** select “Device Manager”
+6. **Press** “Enter” to enter “Device Manager”
+7. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
+8. **Access** the My Wizard Driver menu 
+PIC__image50.png
+10. **Press** “Enter
+11. **Notice** the “**Configuration changed**” message at the bottom of the menu
+12. **To Exit Press** “Escape” then “Y”
+13. **To Exit the “Device Manager” Page: Press** “Escape”
+14. **Press** Up Arrow to “**Continue**” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
+PIC__image51.png)
+15. **Press** “Enter” to return to the Visual Studio Command Prompt
+![](/media/image26.png)
 
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
