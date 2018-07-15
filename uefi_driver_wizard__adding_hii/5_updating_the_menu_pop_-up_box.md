@@ -80,21 +80,23 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 4. **Update** the MyWizardDriver.uni file 
 5. **Add** the following code to the end of the file (as shown below):
 
-
-```
+```c
 // begin code
+#string STR_ONE_OF_PROMPT              #language en "Select Base Address"
+
+#string STR_ONE_OF_HELP                #language en "Select a Base address of 400, 480 or 500 Hex.  Values 0,1 or 2(default) is stored in the NVRAM Data" 
+
+#string STR_ONE_OF_TEXT1               #language en "400 Hex"
+#string STR_ONE_OF_TEXT2               #language en "480 Hex"
+#string STR_ONE_OF_TEXT3               #language en "500 Hex"
+
 // end code
 ```
+![](/media/image54.png)
+(6). **Save** MyWizardDriver.uni 
 
 
 
-
- 
-  
-    
-|  | **#string STR_ONE_OF_PROMPT #language en &quot;Select Base Address&quot;** |
-|  |  |
-|  | **Save** MyWizardDriver.uni |
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
 |  | **Type** build run |
@@ -121,6 +123,7 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 |  | **Type “reset” **at the Shell prompt**** |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
 
+---
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.5
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean.

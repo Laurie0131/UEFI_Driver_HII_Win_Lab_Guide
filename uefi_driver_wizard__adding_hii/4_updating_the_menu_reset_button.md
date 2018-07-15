@@ -76,18 +76,18 @@ defaultstore MyStandardDefault,
 2. **Type** build
 3. **Type** build run
 4. At the UEFI Shell prompt,type **exit**
-![](/media/image17.png)
+![](/media/image46.png)
 5. Now at the setup front page menu,** select **“Device Manager”
-6. **Press** “Enter” to enter **“Device Manager”**
-7. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
+6. **Press** “Enter” to enter “Device Manager”
+7. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter"
 8. **Access** the My Wizard Driver menu and **notice** the item “Reset to Standard Default” 
 ![](/media/image50.png)
 9. **Press Down Arrow to “**Reset to Standard Default” 
-10. **Press** “Enter 
+10. **Press** “Enter" to select 
 11. **Notice** the “**Configuration changed**” message at the bottom of the menu 
-12. **To Exit Press** “Escape” then “Y” 
-13. **To Exit the “Device Manager” Page: Press** “Escape” 
-14. **Press** Up Arrow to “**Continue**” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
+12. To Exit **Press** “Escape” then “Y” 
+13. To Exit the “Device Manager” Page: **Press** “Escape” 
+14. **Press** Up Arrow to “Continue” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
 ![](/media/image51.png)
 15. **Press** “Enter” to return to the Visual Studio Command Prompt 
 ![](/media/image26.png)
