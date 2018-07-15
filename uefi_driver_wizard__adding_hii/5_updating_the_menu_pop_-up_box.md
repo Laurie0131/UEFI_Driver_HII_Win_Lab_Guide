@@ -120,7 +120,8 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 13. **Press** Up Arrow to “Continue”
 14. At the Shell Prompt **type**: "`dmpstore -all`"
 ![](/assets/image58-59.JPG)
-15. Observe file MyWizardDriverNVDataStruc.h <br>By updating MyWizardDriverNVDataStruc.h, our data structure stored in NVRAM is named `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`.<BR>
+15. Observe file MyWizardDriverNVDataStruc.h and the NVRAM `MWD_IfrNVData` variable. <br>
+By updating MyWizardDriverNVDataStruc.h, our data structure stored in NVRAM is named `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`.<BR>
 **Notice** that the base address byte is the next to the last byte in the data structure `MWD_IfrNVData.MyWizardDriverBaseAddress` where `02 == 400H`, `01 == 480H`, and `00 == 500H` <br>
 Notice the NVRAM Variable with the value of `480H` will have a true value of `01`.
 16. **Type** “reset” **at the Shell prompt
