@@ -74,13 +74,14 @@ In this lab, you’ll learn how to add a numeric entry to your driver menu. This
 5. Now at the setup front page menu,** select** “Device Manager”
 6. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter"<br>
 **Notice** the value for “Enter ZY Base(Hex)” is `022`.  Hex is the default because of the VFR field “`default = 0x22`”
-PIC__70
+![](/media/image70.png)
 7. **Select** “Enter ZY Base(Hex)”  and then **Press** “Enter” 
 8. **Test** by typing a “`M`” character<br>
 **Notice** that only Numeric characters are allowed and also only values `00` to `0FA` Hex. When values outside the range or non-numeric characters are entered the red **“!!”** sting is displayed at the bottom of the menu. <br>
 The string **“!!”** is part of the Browser engine : `MdeModulePkg\Universal\SetupBrowserDxe\SetupBrowserStr.uni`<BR>
 `#string INPUT_ERROR_MESSAGE            #language en-US  "!!"`
-PIC_71
+![](/media/image71.png)
+
 9. **Press** “Enter” again 
 10. **Test** by typing a value of ‘`99`’ Hex  and then **Press** “Enter” <br>
 **Notice** that the “**Configuration changed**” message is displayed.
