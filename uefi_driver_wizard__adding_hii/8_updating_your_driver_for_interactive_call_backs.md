@@ -90,36 +90,38 @@ switch (Action) { // Start switch and passed param Action
 
 ### _b._ Update the Menu for Interactive items {#b-update-the-menu-for-interactive-items}
 
-|  | **Update** the MyWizardDriver.vfr file |
-| --- | --- |
-|  | Now, you’ll add the flag characteristic INTERACTIVE to the string item’s flags by using keyword INTERACTIVE and questionid. **Add** the following code in the location shown below: |
-|  | questionid = 0x1001, |
-|  | flags = INTERACTIVE, |
-|  |  |
-|  | Include the numeric item by adding the following code in the location shown below, Approx. line 97 and line 100 |
-|  | questionid = 0x1111, |
-|  | | INTERACTIVE |
-|  |  |
-|  | **Save** MyWizardDriver.vfr |
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type** exit |
-|  | **Press** “Enter” |
-|  | ****Now at the setup front page menu,** select** “Device Manager” |
-|  | **Press** “Enter” |
-|  | ****Inside the Device Manager menu,** select**“My Wizard Driver Sample Formset” |
-|  | **Press** “Enter” |
-|  | ****Take a moment and** review **the Visual Studio build run command prompt window**** |
-|  | ****In the NT32 emulation window,** click **on “Name of Configuration” and “Enter ZY Base(Hex)”**** |
-|  | **Notice **the following in the Visual Studio Command Prompt window:**** |
-|  | **Press **“Escape” to exit**** |
-|  | **Press **“Escape” to exit the “Device Manager”**** |
-|  | **Select “**Continue**”** |
-|  | **Press** “Enter” |
-|  | **Type** “reset” ****at the Shell prompt**** |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+1. **Update** the MyWizardDriver.vfr file 
+2. Now, you’ll add the flag characteristic `INTERACTIVE` to the string item’s flags by using keyword `INTERACTIVE` and `questionid`. **Add** the following code in the location shown below: <br>Approx. line 83 and line 86<br>
+ `questionid = 0x1001,` <br>
+ `flags = INTERACTIVE,` 
+![](/media/image78.png)
+3. Include the numeric item by adding the following code in the location shown below, Approx. line 97 and line 100 <br>
+` questionid = 0x1111,` <br>
+` | INTERACTIVE ,` 
+![](/media/image79.png)
+4. **Save** MyWizardDriver.vfr 
+
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt
+2. **Type** build
+3. **Type** build run
+4. At the UEFI Shell prompt,type **exit**<br>
+5. Now at the setup front page menu,** select** “Device Manager”
+6. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter"
+7. Take a moment and ** review ** the Visual Studio build run command prompt window
+8. In the emulation window,** click **on “Name of Configuration” and “Enter ZY Base(Hex)”
+9. **Notice ** the following in the Visual Studio Command Prompt window: <br>
+Every time the browser does anything with the interactive labeled fields there is a call made to your driver’s call back function.  We can determine which item by the `quetionid` and what action by the Action passed to your call back function.  Your call back function can then add code to special case when these transitions occur.
+<br>
+**Entering Form**
+![](/media/image80.png)
+**Changing a Value for Question ID 0x1111**
+![](/media/image81.png)
+8. **Press** “Escape”  and another "Escape" to exit the “Device Manager” 
+9. **Select** “Continue” and then **Press** "Enter”
+10. **Type** “reset” at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
+![](/media/image26.png)
 
 
 ---
