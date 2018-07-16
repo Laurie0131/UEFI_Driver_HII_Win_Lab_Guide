@@ -89,10 +89,12 @@ MdeModulePkg/MdeModulePkg.dec
 `@~338`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”<br>
 `@~342`: remove line: `ZeroMem (&PrivateData->Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));`<br>
 `@~347`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
-![](/media/image43_1.JPG)
-12. **Add** the following code to the MyWizardDriverDriverEntryPoint entry point code at approximately line 349 before
+![](/media/image43_1.JPG)<br>
+
+12). **Add** the following code to the MyWizardDriverDriverEntryPoint entry point code at approximately line 349 before<br>
  `// Install Driver Supported EFI Version Protocol onto ImageHandle`
-You’re deleting the “`}`" and replacing it with the following code (as shown below).  With this replacement we are adding an “`else`” to the “`if`” statement: <br>Note the “`}`” on line 361 is still matching the initial if statement.  Make sure you do not have a duplicate “`}`”
+You’re deleting the “`}`" and replacing it with the following code (as shown below).  With this replacement we are adding an “`else`” to the “`if`” statement: <br>
+Note the “`}`” on line 361 is still matching the initial if statement.  Make sure you do not have a duplicate “`}`”
 ```
 //Begin code
     //
@@ -112,8 +114,9 @@ You’re deleting the “`}`" and replacing it with the following code (as shown
 // end HII
 // End code
 ```
-![](/media/image44.png)
-13.  **Save** the MyWizardDriver.c file 
+![](/media/image44.png)<br>
+
+13).  **Save** the MyWizardDriver.c file 
 
 
 #### Build and test MyWizardDriver
