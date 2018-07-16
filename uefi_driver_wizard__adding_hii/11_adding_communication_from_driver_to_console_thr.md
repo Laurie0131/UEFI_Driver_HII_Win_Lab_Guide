@@ -59,11 +59,14 @@ In this lab, you’ll add communication from the driver to the console through H
 
 ```
 ![](/media/image102.png)
-7). **Save** MyWizardDriver.uni 
-8). **Update** the MyWizardDriver.c file 
+7). **Save** MyWizardDriver.uni <br>
+
+8). **Update** the MyWizardDriver.c file <br>
+
 9). **Add** the following local variable for `StringPtr` after “`BOOLEAN ActionFlag;`” and before “`Status = EFI_SUCCESS;`”(as shown below): <br>
   `EFI_STRING StringPtr;`<br>
-![](/media/image103.png)
+![](/media/image103.png)<br>
+
 10). Add the following code after “`FreePool (ConfigRequestHdr);`” (as shown below) to edit the driver’s entry point with a debug and print statement by making a call to the `HiiGetString` for the token to print (at approx line 364): 
 
 ```
@@ -71,7 +74,8 @@ StringPtr        = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_S
    DEBUG ((EFI_D_INFO,"[MyWizardDriver-Entrypoint] My String was: %s\n", StringPtr) );
    Print(L"%s\n", StringPtr );
 ```
-![](/media/image104.png)
+![](/media/image104.png)<br>
+
 11). **Save** the MyWizardDriver.c 
 
 
