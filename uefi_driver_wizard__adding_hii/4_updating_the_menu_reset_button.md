@@ -34,9 +34,8 @@ In this lab, you’ll learn how to add a resetbutton to your driver’s form men
 
 The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDriver.uni` string files to incrementally add a reset button (Lab 4), pop-up box (Lab 5), string name (Lab 6), and numeric hex value (Lab 7) to your driver’s form menu:
 
-(1). **Update** the MyWizardDriver.vfr file 
-(2). **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): 
-defaultstore MyStandardDefault,
+1). **Update** the MyWizardDriver.vfr file 
+2). **Add** the following code (as shown below after the “GUID” definition Apprx. Line 29): `MyStandardDefault`,
 
 ```
 
@@ -44,8 +43,8 @@ defaultstore MyStandardDefault,
     attribute = 0x0000;        // Default ID: 0000 standard default
 
 ```
-![](/media/image48.png)
-(3). **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
+![](/media/image48.png)<br>
+3). **Add** the folowing code before the “`endform`” (as shown below Approx. Line 55): 
 
 ```
    resetbutton
@@ -55,10 +54,13 @@ defaultstore MyStandardDefault,
     endresetbutton;
 
 ```
-![](/media/image49.png)
-(4). **Save** MyWizardDriver.vfr 
-(5). **Update** the MyWizardDriver.uni file 
-(6). **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: 
+![](/media/image49.png)<br>
+4). **Save** MyWizardDriver.vfr <br>
+
+5). **Update** the MyWizardDriver.uni file <br>
+
+6). **Add** the following strings at the end of the file to support the “`STR_`“ referenced added in the .vfr file: <br>
+
 
 ```
 #string STR_STANDARD_DEFAULT_PROMPT    #language en "Standard Default"
@@ -66,7 +68,7 @@ defaultstore MyStandardDefault,
 #string STR_STANDARD_DEFAULT_HELP      #language en "This will reset all the Questions to their standard default value"
 
 ```
-(7). **Save** MyWizardDriver.uni 
+7). **Save** MyWizardDriver.uni 
 
 
 
@@ -75,7 +77,8 @@ defaultstore MyStandardDefault,
 1. **Open** the Visual Studio Command Prompt
 2. **Type** build
 3. **Type** build run
-4. At the UEFI Shell prompt,type **exit**
+4. At the UEFI Shell prompt,type **exit**<br>
+
 ![](/media/image46.png)
 5. Now at the setup front page menu,** select **“Device Manager”
 6. **Press** “Enter” to enter “Device Manager”
@@ -91,6 +94,7 @@ defaultstore MyStandardDefault,
 ![](/media/image51.png)
 15. **Press** “Enter” to return to the Visual Studio Command Prompt 
 ![](/media/image26.png)
+
 ---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.4
