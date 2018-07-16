@@ -29,3 +29,5 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
 # Reference {#reference}
+
+![](/media/reference_pic.jpg)

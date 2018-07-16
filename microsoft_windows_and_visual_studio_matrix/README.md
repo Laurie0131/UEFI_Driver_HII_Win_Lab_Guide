@@ -32,10 +32,10 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Files **C:/fw/edk2/conf/target.txt** and **tools_def.txt** ([Return to Configuring Build Tools](../lab_setup/README.md#configuring-build-tools))
 
-| **Visual Studio** | **Version** | **Win7,Win8 &amp; Win10 x64** |
+| **Visual Studio** | **Version** | **Win7,Win8 &amp; Win10 x64 OS** |
 | --- | --- | --- |
 | **VS2005** | **8.0** | **target.txt** TOOL_CHAIN_TAG = **VS2005x86**Requires WinDDK Link16** |
-| **VS2008** | **9.0** | **target.txt** |
+| **VS2008** | **9.0** | **target.txt** TOOL_CHAIN_TAG = **VS2008x86**|
 | **VS2010** | **10.0** | **target.txt** TOOL_CHAIN_TAG = **VS2010x86** |
 | **VS2012** | **11.0** | **target.txt** TOOL_CHAIN_TAG = **VS2012x86** |
 | **VS2013** | **12.0** | **target.txt** TOOL_CHAIN_TAG = **VS2013x86** |

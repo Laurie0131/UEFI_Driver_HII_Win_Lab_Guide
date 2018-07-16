@@ -60,7 +60,7 @@ It will look similar to this **“Visual Studio Command Prompt (201_n_)”** in 
 **_Note_**_: You’ll need to repeat this step each time you exit the Visual Studio Command Prompt window. It is recommended that you keep your command prompt open during the training Labs._
 
 1. **Open** Visual Studio Command Prompt 
-2. **Type** `$ CD c:\fw\edk2` and then **Press** “Enter” |
+2. **Type** `$ CD c:\fw\edk2` and then **Press** “Enter” 
 ![](/media/image5.png)
 3. **Type** `$ Edksetup` and then Press “Enter” 
 ![](/media/image6.png)
@@ -75,8 +75,19 @@ Note: If you see “!!! WARNING !!!...”, don’t be alarmed.  The "No CYGWIN..
 1. **Open** Notepad or other text editor that supports UNICODE 
 2.  **Open** C:/fw/edk2/Conf/Target.txt 
 3. Use the 
-[Microsoft Windows and Visual Studio Matrix ](../microsoft-windows-and-visual-studio-matrix.md) and then update `TOOL_CHAIN_TAG` to match your version of Visual Studio
-
-
+[Microsoft Windows and Visual Studio Matrix ](../microsoft_windows_and_visual_studio_matrix/README.md) and then update `TOOL_CHAIN_TAG` to match your version of Visual Studio
+4. **Modify** **TOOL_CHAIN_TAG** to match your version of Visual Studio.
+![](/media/image113.png)
+**Example:**<br>
+for Windows 10 64 bit OS and Visual Studio 2013 modify the following in Target.txt<br>
+From:<br>
+**TOOL_CHAIN_TAG = MYTOOLS**
+<br>
+to:<br>
+**TOOL_CHAIN_TAG = VS2013x86**
+<br>
+OPTIONAL: Update the `MAX_CONCURRENT_THREAD_NUMBER `
+![](/media/image114.png)
+5. **Save** and **close** the text file C:/fw/edk2/conf/target.txt
 
 ### End of Lab Setup for Windows
