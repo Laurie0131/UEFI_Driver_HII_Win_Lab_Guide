@@ -48,28 +48,35 @@ C:\Fw\Nasm – For Assembly compiler
 
 ### Pin Visual Studio Command Prompt for Windows {#pin-visual-studio-command-prompt-for-windows}
 
-1.  Visual Studio Command Prompt for [Windows 10](../microsoft_windows_10__visual_studio_command_prompt.md) 
-2. **Pin “Visual Studio Command Prompt (201_n_)”** to the Task bar 
-![](/assets/TaskBar.JPG)
+- Pin a Visual Studio Command Prompt for [Windows 10](../microsoft_windows_10__visual_studio_command_prompt.md) <br>
+It will look similar to this **“Visual Studio Command Prompt (201_n_)”** in the Task bar 
+![](/assets/TaskBarW10.JPG)<br>
+**Note: **this is the prompt that will be used to build the EDK II Labs
+
+
 
 ### Preparing for the BUILD Command {#preparing-for-the-build-command}
 
-**_Note_**_: You’ll need to repeat this step each time you exit the Visual Studio Command Prompt window. It is recommended that you keep your command prompt open during the training._
+**_Note_**_: You’ll need to repeat this step each time you exit the Visual Studio Command Prompt window. It is recommended that you keep your command prompt open during the training Labs._
 
-| **Step** | **Action** |
-| --- | --- |
-| **4** | **Open** Visual Studio Command Prompt |
-|  | **Type CD c:\fw\edk2** |
-|  | Press “Enter” |
-|  | **Type edksetup** |
-|  | Press “Enter” |
+1. **Open** Visual Studio Command Prompt 
+2. **Type** `$ CD c:\fw\edk2` and then **Press** “Enter” |
+![](/media/image5.png)
+3. **Type** `$ Edksetup` and then Press “Enter” 
+![](/media/image6.png)
+Note: If you see “!!! WARNING !!!...”, don’t be alarmed.  The "No CYGWIN..." can be ignored at this time, **BUT** make sure "NASM" is found and the `NASM_PREFIX `is set to `C:\nasm\`
+![](/media/image7.png)
+
 
 ### Configuring Build Tools {#configuring-build-tools}
 
 **_Note_**_: You only need to edit Target.txt and/or Tools_Def.txt once after the first_ **edksetup** _command after downloading the Training materials .zip file._
 
-| **Step** | **Action** |
-| --- | --- |
-|  | **Open** Notepad or other text editor that supports UNICODE |
-|  | **Open** C:/fw/edk2/Conf/Target.txt |
-|  |  |
+1. **Open** Notepad or other text editor that supports UNICODE 
+2.  **Open** C:/fw/edk2/Conf/Target.txt 
+3. Use the 
+[Microsoft Windows and Visual Studio Matrix ](../microsoft-windows-and-visual-studio-matrix.md) and then update `TOOL_CHAIN_TAG` to match your version of Visual Studio
+
+
+
+### End of Lab Setup for Windows
