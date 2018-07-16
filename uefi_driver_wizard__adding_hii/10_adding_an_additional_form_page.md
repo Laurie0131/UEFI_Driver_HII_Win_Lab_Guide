@@ -45,10 +45,9 @@ In addition, this lab will show how the “time” and “date” VFR terms are 
 ![](/media/image92.png)
 3. **Save** MyWizardDriverNVDataStruc.h 
 4. **Update** the MyWizardDriver.uni file 
-5. **Add** the following code to the end of the file to update the second page’s string:
+5. **Add** the following code to the end of the file to update the second page’s string:<br>
 
 ```
-// Begin Code
 #string STR_FORM2_TITLE                #language en "MyWizardDriver Second Setup Page"
 #string STR_DATE_PROMPT                #language en "Windows System Date"
 #string STR_DATE_HELP                  #language en "This is the help for the Date (month/day/year). (Error checking will be done against month/day/year combinations that are not supported.)"
@@ -64,11 +63,13 @@ In addition, this lab will show how the “time” and “date” VFR terms are 
  
 #string STR_MY_TIME_PROMPT             #language en "My System Time"
 
-// End Code
 ```
+
 6). **Save** MyWizardDriver.uni 
 7). **Update** the MyWizardDriver.vfr file 
-8). **Add** the “`goto`” VFR item to allow browser to ender another form by adding the following code before the "`endform`” at approx. line 114 
+8). **Add** the “`goto`” VFR item to allow browser to ender another form by adding the following code before the "`endform`” at approx. line 114 <Br>
+
+
 
 ```
 grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
@@ -78,7 +79,8 @@ grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
    endif;
 
 ```
-![](/media/image93.png)
+![](/media/image93.png)<br>
+
 9).  **Add** the following code between “`endform`” at approx. line 120 and “`endformset`” (the code continues for few pages in this lab guide):
 
 ```
@@ -177,32 +179,37 @@ grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
 
 // End code
 ```
+
 10). **Save** MyWizardDriver.vfr 
 
+#### Build and test MyWizardDriver
 
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type** exit |
-|  | ****Now at the setup front page menu,** select **“Device Manager”**** |
-|  | **Press** “Enter” |
-|  | ****Inside the Device Manager menu,** select **“My Wizard Driver Sample Formset”**** |
-|  | **Press** “Enter” |
-|  | **Select** “Enter Page 2” |
-|  | **Press** “Enter” |
-|  | **Test **by trying to enter the date 02/30/2013, then try a valid leap year date: 02/29/2012.**** |
-|  | **Press** “Down Arrow” to return to Page 1 |
-|  | ****Test the “grayoutif” by going to “Enable My XYZ Device”**** |
-|  | ****Press the “Spacebar” to toggle off/disable**** |
-|  | **Notice **the**** “Select Base Address” , “Name of Configruation” and the “Enter Page 2” ****fields are now grayed out and not selectable**** |
-|  | **Press **“Space bar” again to Enable**** |
-|  | **Press **“F10” then “Escape” to save and exit**** |
-|  | **Press **“Escape” to exit “Device Manager”**** |
-|  | **Select “**Continue**”** |
-|  | **Press** “Enter” |
-|  | **Type** “reset” |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+1. **Open** the Visual Studio Command Prompt
+2. **Type** build
+3. **Type** build run
+4. At the UEFI Shell prompt,type **exit**<br>
+5. Now at the setup front page menu,** select** “Device Manager”
+6. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter" 
+![](/media/image94.png)
+<br>
+**Notice**  the “Enter Page 2” option.  Without `goto` in the `MyWizardDriver.vfr` file, you wouldn’t be able to access page two.  
+7. **Select** “Enter Page 2” and then **Press** “Enter” <br>
+**Notice** how the System Date and Time cannot be modified to any other date/time and is grayed out:
+![](/media/image95.png)
+8. **Test **by trying to enter the date 02/30/2013, then try a valid leap year date: 02/29/2012.
+9. **Press** “Down Arrow” to return to Page 1 
+10. **Test** the “`grayoutif”` by going to “Enable My XYZ Device”
+11. **Press** the “Spacebar” to toggle off/disable<br>
+**Notice **the “Select Base Address” , “Name of Configuration” and the “Enter Page 2” fields are now grayed out and not selectable
+![](/media/image96.png)
+12. **Press ** “Space bar” again to Enable
+13. **Press **“F10” then “Escape” to save and exit
+14. **Press **“Escape” to exit “Device Manager”
+10. **Select** “Continue” and then **Press** "Enter”
+11. **Type** “reset” <br>
+![](/media/image97.png) <br>
+at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
+![](/media/image26.png)
 
 ---
 
