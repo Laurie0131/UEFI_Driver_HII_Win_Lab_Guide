@@ -71,7 +71,6 @@ In addition, this lab will show how the “time” and “date” VFR terms are 
 8). **Add** the “`goto`” VFR item to allow browser to ender another form by adding the following code before the "`endform`” at approx. line 114 <Br>
 
 
-
 ```
 grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
         goto 2,
