@@ -47,7 +47,7 @@ In this lab, you’ll learn how to add a numeric entry to your driver menu. This
             flags   = DISPLAY_UINT_HEX ,     // Display in HEX format (if not specified, default is in decimal format)
             minimum = 0,
 ```
-PIC__69
+![](/media/image69.png)
 3. **Save** MyWizardDriver.vfr 
 4. **Update** the MyWizardDriver.uni file 
 5. **Add** the following code to the bottom of the file: 
