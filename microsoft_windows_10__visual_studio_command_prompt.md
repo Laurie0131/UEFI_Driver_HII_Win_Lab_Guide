@@ -35,7 +35,7 @@ The following steps can be used to Pin the Microsoft Windows 10 – Visual Studi
 
 
 1. **Open** Microsoft Visual Studio 2013 command prompt <br>
-(NOTE: VS 2013 is used in the following examples but VS 2010, VS 2015 and VS 2017 will be similar ) 
+(NOTE: VS 2013 is used in the following examples but VS 2010, VS 2015 and VS 2017 will be similar) 
 2. Using the Start menu in Windows 10,** Left-click** on the  “Windows Key” Lower Left
 ![](/media/image115.jpeg)
 3. **Scroll down** from the scroll bar on the right until **“Visual Studio 2013”** (or your version of VS 201_n_)<br>

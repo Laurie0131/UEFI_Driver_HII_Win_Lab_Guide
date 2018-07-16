@@ -42,7 +42,7 @@ C:\Fw \LabSampleCode  - Solutions for Labs
 C:\Fw \Documentation - .chm files and examples
 C:\Fw\Nasm – For Assembly compiler
 ```
-3.  **Copy** the C:\fw\NASM directory to C: 
+3.  **Copy** the C:\fw\NASM directory to C: <br>
 ![](/media/image110.png)
 
 
@@ -63,7 +63,7 @@ It will look similar to this **“Visual Studio Command Prompt (201_n_)”** in 
 2. **Type** `$ CD c:\fw\edk2` and then **Press** “Enter” 
 ![](/media/image5.png)
 3. **Type** `$ Edksetup` and then Press “Enter” 
-![](/media/image6.png)
+![](/media/image6.png)<br>
 Note: If you see “!!! WARNING !!!...”, don’t be alarmed.  The "No CYGWIN..." can be ignored at this time, **BUT** make sure "NASM" is found and the `NASM_PREFIX `is set to `C:\nasm\`
 ![](/media/image7.png)
 
@@ -77,7 +77,7 @@ Note: If you see “!!! WARNING !!!...”, don’t be alarmed.  The "No CYGWIN..
 3. Use the 
 [Microsoft Windows and Visual Studio Matrix ](../microsoft_windows_and_visual_studio_matrix/README.md) and then update `TOOL_CHAIN_TAG` to match your version of Visual Studio
 4. **Modify** **TOOL_CHAIN_TAG** to match your version of Visual Studio.
-![](/media/image113.png)
+![](/media/image113.png)<br>
 **Example:**<br>
 for Windows 10 64 bit OS and Visual Studio 2013 modify the following in Target.txt<br>
 From:<br>
@@ -86,7 +86,7 @@ From:<br>
 to:<br>
 **TOOL_CHAIN_TAG = VS2013x86**
 <br>
-OPTIONAL: Update the `MAX_CONCURRENT_THREAD_NUMBER `
+OPTIONAL: Update the `MAX_CONCURRENT_THREAD_NUMBER ` By the number of processors on your laptop + 1.  Example: most have Intel® Dual Core with Hyper threading which means `2 procs + 2 HT + 1 = 5`.
 ![](/media/image114.png)
 5. **Save** and **close** the text file C:/fw/edk2/conf/target.txt
 
