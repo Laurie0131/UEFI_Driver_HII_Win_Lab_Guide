@@ -28,22 +28,29 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-# Lab Setup {#lab-setup}
+# Lab Setup Windows {#lab-setup}
 
 
-| **Step** | Action |
-| --- | --- |
-|  | Download the [UEFI Training Materials](https://github.com/Laurie0131/Lab_Material_FW) (accept any security notifications) |
-|  | **Click** “Open” |
-|  | Unzip the file to C: which will take a few minutes |
-|  | Copy the C:\fw\NASM directory to C: |
+1.  Download the [UEFI Training Materials](https://github.com/Laurie0131/Lab_Material_FW) .zip (accept any security notifications) 
+2. **Click** “Open”  and Unzip the file to C: which will take a few minutes <br>
+Note:  It is highly important that you unzip the file correctly to this location because all the file locations in this training guide follow that format.
+```
+C:\Fw\Presentations  - separate zip file 
+C:\Fw \Edk2 – Open source tianocore.org EDK II 
+C:\Fw \DriverWizard – Install .MSI
+C:\Fw \LabSampleCode  - Solutions for Labs
+C:\Fw \Documentation - .chm files and examples
+C:\Fw\Nasm – For Assembly compiler
+```
+3.  **Copy** the C:\fw\NASM directory to C: 
+![](/media/image110.png)
+
 
 ### Pin Visual Studio Command Prompt for Windows {#pin-visual-studio-command-prompt-for-windows}
 
-| **Step** | **Action** |
-| --- | --- |
-|  | Visual Studio Command Prompt for [Windows](../microsoft_windows_10__visual_studio_command_prompt.md) 10 |
-|  | **Pin “Visual Studio Command Prompt (201_n_)”** to the Task bar |
+1.  Visual Studio Command Prompt for [Windows 10](../microsoft_windows_10__visual_studio_command_prompt.md) 
+2. **Pin “Visual Studio Command Prompt (201_n_)”** to the Task bar 
+![](/assets/TaskBar.JPG)
 
 ### Preparing for the BUILD Command {#preparing-for-the-build-command}
 
