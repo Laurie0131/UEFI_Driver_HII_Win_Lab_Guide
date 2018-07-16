@@ -87,9 +87,9 @@ The string **“!!”** is part of the Browser engine : `MdeModulePkg\Universal\
 **Notice** that the “**Configuration changed**” message is displayed.
 11. **Test** the “`surpressif`” by pressing the “spacebar” to “Enable My XYZ Device” then press the “Space” bar to toggle off or “Disabled”. <br>
 **Notice** the “Select Base Address” and “Name of Configuration” fields are now grayed out and not selectable and the “**Enter ZY Base(Hex)**” does not appear at all. 
-Pic__72
+![](/media/image72.png)
 12. **Press** “Space bar” again to “Enable My XYZ Device” and the“**Enter ZY Base(Hex)**” is displayed again
-Pic__73
+![](/media/image73.png)
 13. **Press** “F10”  to save, then “Escape” to exit
 14. **Press** “Escape” to exit the “Device Manager” 
 15. **Select “**Continue**”** and then **Press** "Enter”
