@@ -43,7 +43,7 @@ DEBUG ((DEBUG_INFO, "\n:: START Call back ,Question ID=0x%08x Type=0x%04x Action
 
 ```
 
-### _a._ Add the Case statements to the Call back routine {#a-add-the-case-statements-to-the-call-back-routine}
+### Lab 8_a._ Add the Case statements to the Call back routine {#a-add-the-case-statements-to-the-call-back-routine}
 
 1. **Update** the HiiConfigAccess.c file 
 2. **Add** the following code before `return status`; to include a “`case`” statement in the call back routine for the “action” passed. |
@@ -85,10 +85,10 @@ switch (Action) { // Start switch and passed param Action
 8. **Press** “Escape”  and another "Escape" to exit the “Device Manager” 
 9. **Select** “Continue” and then **Press** "Enter”
 10. **Type** “reset” at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
-![](/media/image26.png)
+![](/media/image25.png)
 
 
-### _b._ Update the Menu for Interactive items {#b-update-the-menu-for-interactive-items}
+### Lab 8_b._ Update the Menu for Interactive items {#b-update-the-menu-for-interactive-items}
 
 1. **Update** the MyWizardDriver.vfr file 
 2. Now, you’ll add the flag characteristic `INTERACTIVE` to the string item’s flags by using keyword `INTERACTIVE` and `questionid`. **Add** the following code in the location shown below: <br>Approx. line 83 and line 86<br>
