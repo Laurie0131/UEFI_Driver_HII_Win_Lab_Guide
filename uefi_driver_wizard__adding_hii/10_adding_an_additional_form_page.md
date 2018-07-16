@@ -173,10 +173,7 @@ grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
          // this too has no end-op and basically it's a jump to a form ONLY
         help   = STRING_TOKEN(STR_GOTO_HELP);
 
-
    endform;
-
-
 // End code
 ```
 
@@ -205,11 +202,10 @@ grayoutif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
 12. **Press ** “Space bar” again to Enable
 13. **Press **“F10” then “Escape” to save and exit
 14. **Press **“Escape” to exit “Device Manager”
-10. **Select** “Continue” and then **Press** "Enter”
-11. **Type** “reset” <br>
+15. **Select** “Continue” and then **Press** "Enter”
+16. **Type** “reset” <br>
 ![](/media/image97.png) <br>
 at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
-![](/media/image26.png)
 
 ---
 

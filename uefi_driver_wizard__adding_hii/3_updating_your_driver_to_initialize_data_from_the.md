@@ -138,8 +138,8 @@ Note the “`}`” on line 361 is still matching the initial if statement.  Make
 10. **Press** “Escape” to Exit the “Device Manager” Page
 11. **Press** Up Arrow to “Continue” and then **Press** “Enter” 
 ![](/media/image24.png)
-12. **Type** "`Reset`" to return to the Visual Studio Command Prompt 
-![](/media/image25.png)
+12. **Type** "`Reset`" to return to the Visual Studio Command Prompt <br>
+![](/media/image97.png)
 <br> 
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.3
@@ -180,8 +180,8 @@ As of now, your driver needs to be soft loaded each time from the shell prompt. 
 9. **Press **Up Arrow to “Continue”
 ![](/media/image24.png)
 10. **Press** “Enter” 
-11. **Type** "`Reset`" to return to the Visual Studio Command Prompt 
-![](/media/image25.png)
+11. **Type** "`Reset`" to return to the Visual Studio Command Prompt<br> 
+![](/media/image97.png)
  
 
 ---

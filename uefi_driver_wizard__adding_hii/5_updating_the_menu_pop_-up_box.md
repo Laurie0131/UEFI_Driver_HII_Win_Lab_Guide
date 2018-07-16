@@ -126,8 +126,8 @@ By updating MyWizardDriverNVDataStruc.h, our data structure stored in NVRAM is n
 **Notice** that the base address byte is the next to the last byte in the data structure `MWD_IfrNVData.MyWizardDriverBaseAddress` where `02 == 400H`, `01 == 480H`, and `00 == 500H` <br>
 Notice the NVRAM Variable with the value of `480H` will have a true value of `01`.
 16. **Type** “reset” **at the Shell prompt
-17. **Press** “Enter” to return to the Visual Studio Command Prompt
-![](/media/image25.png)
+17. **Press** “Enter” to return to the Visual Studio Command Prompt<br>
+![](/media/image97.png)
 
 
 ---

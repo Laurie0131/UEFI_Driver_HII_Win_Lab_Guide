@@ -338,7 +338,7 @@ gEfiHiiDatabaseProtocolGuid                 ## CONSUMES
 16. **Press **Up Arrow to “Continue”**** 
 ![](/media/image24.png)
 18. **At the Shell prompt** type **Reset**<br>
-![](/media/image25.png)
+![](/media/image97.png)
 19. **Press** “Enter” to return to the Visual Studio Command Prompt 
 ![](/media/image26.png)
 ---

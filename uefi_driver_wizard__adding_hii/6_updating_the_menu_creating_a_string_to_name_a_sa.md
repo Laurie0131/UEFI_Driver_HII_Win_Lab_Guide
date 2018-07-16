@@ -100,7 +100,7 @@ In this lab, you’ll create a string to name a saved configuration that will be
 because you entered those characters in the HII form menu.  This is because the file `WizardDriverNVDataStruc.h` has the data structure stored in NVRAM with the GUID define name `MWD_IfrNVData `of type `MYWIZARDDRIVER_CONFIGURATION`.  Notice that string data is the first 20 bytes in the data structure `MWD_IfrNVData.MyWizardDriverStringData`.
 ![](/assets/image65_66.JPG)
 20. **Type** “reset” and then “Enter" at the Shell prompt to return to the Visual Studio Command Prompt<br>
-![](/media/image25.png)
+![](/media/image97.png)
 
 ---
 

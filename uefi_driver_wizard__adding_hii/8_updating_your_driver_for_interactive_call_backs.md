@@ -123,7 +123,7 @@ Every time the browser does anything with the interactive labeled fields there i
 10. **Press** “Escape”  and another "Escape" to exit the “Device Manager” 
 11. **Select** “Continue” and then **Press** "Enter”
 12. **Type** “reset” at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
-![](/media/image26.png)
+![](/media/image97.png)
 
 
 ---

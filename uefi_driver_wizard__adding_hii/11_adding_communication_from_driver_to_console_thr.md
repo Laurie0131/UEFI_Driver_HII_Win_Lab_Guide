@@ -58,7 +58,9 @@ In this lab, you’ll add communication from the driver to the console through H
 				                        #language fr-FR "Chaîne de test de Laurie"
 
 ```
-![](/media/image102.png)
+![](/media/image102.png)<br>
+
+
 7). **Save** MyWizardDriver.uni <br>
 
 8). **Update** the MyWizardDriver.c file <br>
@@ -91,7 +93,8 @@ StringPtr        = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_S
 7.  **Type** "build run" and then  **Press** “Enter” 
 8. **Type** "exit" at the shell prompt 
 9. **Select Language** and then **Press** “Enter” 
-![](/media/image106.png)
+![](/media/image106.png)<br>
+
 10.  **Select** “Français”  and then **Press** “Enter” 
 ![](/media/image107.png)<br>
 11. **Select** “Continuer” and then **Press** “Enter” 
@@ -100,7 +103,7 @@ StringPtr        = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_S
 13. **Type** load MyWizardDriver.efi 
 ![](/media/image109.png)
 14.  **Type** “reset” and then  **Press** “Enter” to return to the Visual Studio Command Prompt 
-![](/media/image26.png)
+![](/media/image97.png)
 
 ---
 

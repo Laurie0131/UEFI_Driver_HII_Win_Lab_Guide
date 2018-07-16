@@ -92,7 +92,7 @@ The next set of labs will update .VFR, `MyWizardDriver.vfr`, and UNI `MyWizardDr
 13. To Exit the “Device Manager” Page: **Press** “Escape” 
 14. **Press** Up Arrow to “Continue” <br> **Observe:** Notice that since this change requires a reset, the Nt32 will exit out completely. 
 ![](/media/image51.png)
-15. **Press** “Enter” to return to the Visual Studio Command Prompt 
+15. **Press** “Enter” to return to the Visual Studio Command Prompt <br>
 ![](/media/image26.png)
 
 ---

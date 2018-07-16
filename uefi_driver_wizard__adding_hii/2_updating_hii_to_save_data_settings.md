@@ -306,7 +306,7 @@ EFI_STATUS                       Status;
 Because our data structure in` MyWizardDriverNVDataStruc.h` is stored in NVRAM with the variable name `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`, we can see the changes from our menu accessing through our HII forms.<br> Notice that the enable/disable byte is the last byte in data structure `MWD_IfrNVData.MyWizardDriverChooseToEnable` where `00 == disable` and `01 == enable`.
 18. **Type** Reset to return to the Visual Studio Command Prompt <br>
 
-![](/media/image25.png)
+![](/media/image97.png)
 
 ---
 
