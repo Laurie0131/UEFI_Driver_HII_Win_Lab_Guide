@@ -56,14 +56,13 @@ In this lab, you’ll create a string to name a saved configuration that will be
 5. **Add** the following code to the bottom of the file: <br>
 
 ```
-//Begin Code
-#string STR_MY_STRING_PROMPT           #language en "Name of Configuration"
 
+#string STR_MY_STRING_PROMPT           #language en "Name of Configuration"
 #string STR_MY_STRING_HELP             #language en "Enter a name for this configuration. This string can is 3 to 20 characters"
-//End Code
+
 ```
-![](/media/image61.png)
-6) **Save** MyWizardDriver.uni 
+![](/media/image61.png)<br>
+6. **Save** MyWizardDriver.uni 
 
 #### Build and test MyWizardDriver
 
