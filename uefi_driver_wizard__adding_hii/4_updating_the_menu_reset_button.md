@@ -7,11 +7,11 @@ Redistribution and use in source (original document form) and 'compiled'
 forms (converted to PDF, epub, HTML and other formats) with or without
 modification, are permitted provided that the following conditions are met:
 
-1) Redistributions of source code (original document form) must retain the
+1). Redistributions of source code (original document form) must retain the
 above copyright notice, this list of conditions and the following
 disclaimer as the first lines of this file unmodified.
 
-2) Redistributions in compiled form (transformed to other DTDs, converted to
+2). Redistributions in compiled form (transformed to other DTDs, converted to
 PDF, epub, HTML and other formats) must reproduce the above copyright
 notice, this list of conditions and the following disclaimer in the
 documentation and/or other materials provided with the distribution.

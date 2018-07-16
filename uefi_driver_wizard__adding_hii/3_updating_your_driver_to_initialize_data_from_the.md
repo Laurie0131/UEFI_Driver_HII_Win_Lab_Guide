@@ -118,6 +118,35 @@ Note the “`}`” on line 361 is still matching the initial if statement.  Make
 
 13).  **Save** the MyWizardDriver.c file 
 
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt 
+2.  **Type** build 
+3. **Type** build run 
+4.  **At the UEFI Shell prompt,type** fs0: 
+5.  **Type** Load MyWizardDriver.efi and then **Press** “Enter” 
+![](/media/image17.png)
+6.  **Type** exit 
+7.  Now at the setup front page menu,** select **“Device Manager”
+![](/media/image18.png)
+8. **Press** “Enter”  to enter **“Device Manager”**
+9. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** 
+![](/media/image19.png)
+10. To Exit the “Device Manager” Page: **Press** “Escape”
+11. **Press** Up Arrow to “Continue” and then **Press** “Enter” 
+12. **Type** "`Reset`" to return to the Visual Studio Command Prompt 
+![](/media/image25.png)
+ 
+
+
+
+
+
+### Lab 3b. Add your Driver to the platform  {#a-add-your-driver-to-the-platform}
+
+
+
+
 
 #### Build and test MyWizardDriver
 
