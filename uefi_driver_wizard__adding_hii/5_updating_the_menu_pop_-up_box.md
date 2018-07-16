@@ -92,8 +92,9 @@ For this lab you will add code to give your driver menu a pop-up menu item by de
 
 // end code
 ```
-![](/media/image54.png)
-(6). **Save** MyWizardDriver.uni 
+![](/media/image54.png)<br>
+
+6). **Save** MyWizardDriver.uni 
 
 
 #### Build and test MyWizardDriver
