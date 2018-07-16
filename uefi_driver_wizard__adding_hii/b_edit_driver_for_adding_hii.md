@@ -219,7 +219,7 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
   UINTN                            BufferSize; 
 
 ```
-![](/media/image11.png)
+![](/media/image11.png)<br>
 15).  **Locate** the **ASSERT_EFI_ERROR (Status);** statement and the line: **// Retrieve HII Package List Header on ImageHandle** (approximately line 202). Now, **add** the following code to install the configuration access protocol (produced) by copying and pasting (as shown below) before the line: **// Retrieve HII Package List Header on ImageHandle** 
 
 ```c
@@ -255,14 +255,14 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
   PrivateData->DriverHandle[0] = mDriverHandle[0];
 // end code
 ```
-![](/media/image12.png)
+![](/media/image12.png)<br>
 16).  Next, **add** code to register a list of HII packages in the HII Database with the HII device path. This requires you to **replace** existing code (see below) by copying and pasting the new code at approx. line 265. 
 <br>**Old Code**<br>
 ![](/media/image13.png)<br>
 `mDriverHandle[0],`<br>
 `&HiiHandle[0]`<br>
 <br>**New Code** <br>
-![](/media/image14.png)
+![](/media/image14.png)<br>
 17). Next, you’ll **add** code to initialize the My Wizard Driver NVRAM variable by copying and pasting the following code **before** the` // Install Driver Supported EFI Version Protocol onto ImageHandle` comment (as shown below at approximately line 273): 
 
 ```
@@ -292,8 +292,8 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
   }
 // end code
 ```
-![](/media/image15.png)
-18). **Save** MyWizardDriver.c 
+![](/media/image15.png)<br>
+18). **Save** MyWizardDriver.c <br>
 19). Now onto the final file, MyWizardDriver.inf. **Add** the following protocols in the [protocols] section that are being used by copying and pasting (as shown below): 
 
 ```
@@ -303,9 +303,9 @@ gEfiFormBrowser2ProtocolGuid                ## CONSUMES
 gEfiHiiDatabaseProtocolGuid                 ## CONSUMES
 
 ```
-![](/media/image16.png)
-- `20`. **Save** the MyWizardDriver.inf file. All the files should be saved at this point. 
-- `21`. **Add** MyWizardDriver.inf to the Nt32Pkg.dsc(See Lab 2building MyWizardDriver from the Driver Porting Lab) 
+![](/media/image16.png)<br>
+20). **Save** the MyWizardDriver.inf file. All the files should be saved at this point. <br>
+21). **Add** MyWizardDriver.inf to the Nt32Pkg.dsc(See Lab 2building MyWizardDriver from the Driver Porting Lab) 
 
 #### Build and test MyWizardDriver
 
