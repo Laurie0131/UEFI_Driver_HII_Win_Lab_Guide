@@ -118,6 +118,8 @@ Every time the browser does anything with the interactive labeled fields there i
 ![](/media/image80.png)
 **Changing a Value for Question ID 0x1111**
 ![](/media/image81.png)
+**Changing a Value for Question ID 0x1001**
+![](/assets/image82-84.JPG)
 10. **Press** “Escape”  and another "Escape" to exit the “Device Manager” 
 11. **Select** “Continue” and then **Press** "Enter”
 12. **Type** “reset” at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>

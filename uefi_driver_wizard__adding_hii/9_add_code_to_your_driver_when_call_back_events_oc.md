@@ -28,9 +28,9 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## 9\. Add code to your driver when Call Back events occur for Interactive Items {#9-add-code-to-your-driver-when-call-back-events-occur-for-interactive-items}
+## Lab 9\. Add code to your driver when Call Back events occur for Interactive Items {#9-add-code-to-your-driver-when-call-back-events-occur-for-interactive-items}
 
-In this lab, you’ll update your driver to print debug statements when the Hii browser engine calls back into your call back function. Every time the browser does anything with the interactive labeled fields there is a call made to your driver’s call back function. We can determine the item by the quetionid and what action based on the action passed to your call back function. Your call back function can then add code to special case when these transitions occur.
+In this lab, you’ll update your driver to print debug statements when the Hii browser engine calls back into your call back function. Every time the browser does anything with the interactive labeled fields there is a call made to your driver’s call back function. We can determine the item by the `quetionid` and what action based on the action passed to your call back function. Your call back function can then add code to special case when these transitions occur.
 
 For this lab we will simply add Debug print statements. However, the use of adding call backs to a driver’s HII functions adds the capability of providing more manageability and flexibility for the interactions between the user, the browser engine, and your driver code. In a real driver firmware situation, it may be desired to implement more complex features and functionality based upon an item changing.
 
@@ -68,6 +68,9 @@ For this lab we will simply add Debug print statements. However, the use of addi
 |  | **Type** “reset” ****at the Shell prompt**** |
 |  | **Press** “Enter” to return to the Visual Studio Command Prompt |
 
+---
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.9
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean.
+
+### End of Lab 9
