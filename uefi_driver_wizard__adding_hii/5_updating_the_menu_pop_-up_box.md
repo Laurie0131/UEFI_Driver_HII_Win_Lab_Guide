@@ -127,7 +127,7 @@ By updating MyWizardDriverNVDataStruc.h, our data structure stored in NVRAM is n
 Notice the NVRAM Variable with the value of `480H` will have a true value of `01`.
 16. **Type** “reset” **at the Shell prompt
 17. **Press** “Enter” to return to the Visual Studio Command Prompt
-![](/media/image26.png)
+![](/media/image25.png)
 
 
 ---
