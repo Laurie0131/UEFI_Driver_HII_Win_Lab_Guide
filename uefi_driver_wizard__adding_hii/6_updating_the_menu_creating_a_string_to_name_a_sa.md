@@ -62,7 +62,7 @@ In this lab, you’ll create a string to name a saved configuration that will be
 
 ```
 ![](/media/image61.png)<br>
-6. **Save** MyWizardDriver.uni 
+6). **Save** MyWizardDriver.uni 
 
 #### Build and test MyWizardDriver
 

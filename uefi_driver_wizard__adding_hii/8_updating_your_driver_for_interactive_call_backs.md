@@ -93,11 +93,11 @@ switch (Action) { // Start switch and passed param Action
 1. **Update** the MyWizardDriver.vfr file 
 2. Now, you’ll add the flag characteristic `INTERACTIVE` to the string item’s flags by using keyword `INTERACTIVE` and `questionid`. **Add** the following code in the location shown below: <br>Approx. line 83 and line 86<br>
  `questionid = 0x1001,` <br>
- `flags = INTERACTIVE,` 
+ `flags = INTERACTIVE,` <br>
 ![](/media/image78.png)
 3. Include the numeric item by adding the following code in the location shown below, Approx. line 97 and line 100 <br>
 ` questionid = 0x1111,` <br>
-` | INTERACTIVE ,` 
+` | INTERACTIVE ,` <br>
 ![](/media/image79.png)
 4. **Save** MyWizardDriver.vfr 
 

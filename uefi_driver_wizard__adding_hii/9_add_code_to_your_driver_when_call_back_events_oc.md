@@ -36,7 +36,7 @@ For this lab we will simply add Debug print statements. However, the use of addi
 
 1. **Update** the HiiConfigAccess.c file 
 2. **Comment** **out** the DEBUG statement with “`//`” in the `MyWizardDriverHiiConfigAccessCallback` call back function approx. line 330: <br>
-`    //`
+`    //`<br>
 ![](/media/image85.png)
 3. **Add** a switch case statement of the question ID’s to the “Action” switch case of `EFI_BROWSER_ACTION_CHANGING` in the call back function by **adding** a nested switch case code (as shown below at approx. line 372 ) 
 ```
@@ -69,7 +69,7 @@ For this lab we will simply add Debug print statements. However, the use of addi
 		 }
 
 ```
-![](/media/image87.png)
+![](/media/image87.png)<br>
 5. **Save** MyWizardDriver.c 
 
 #### Build and test MyWizardDriver
