@@ -32,7 +32,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 In this lab, you’ll learn how to update your driver to initialize the data according to the defaults set in the .VFR file. Thus when the user enters your driver’s menu for the first time, the values will display the defaults according to the .VFR file settings. You will also learn the rich set of HII function calls that are part of the `MdeModulePkg` in the `HiiLib` by reviewing the “MdeModulePkg Document.chm”.
 
-### _a._ Add HII Library Calls to Your Driver {#a-add-hii-library-calls-to-your-driver}
+### Lab 3_a._ Add HII Library Calls to Your Driver {#a-add-hii-library-calls-to-your-driver}
 
 For this lab you will update the following files: MyWizardDriver.inf, MyWizardDriver.h, and MyWizardDriver.c
 1. **Update** the MyWizardDriver.inf file  
@@ -42,23 +42,31 @@ For this lab you will update the following files: MyWizardDriver.inf, MyWizardDr
 MdeModulePkg/MdeModulePkg.dec
 ```
 ![](/media/image38.png)
-**_Note_**: For other functions from the HII Library, open the .chm file “MdeModulePkg Document.chm” and search for `HiiLib.h`. 
-3. **Add** the following library class (as shown below): <br>
+**_Note_**: For other functions from the HII Library, open the .chm file “MdeModulePkg Document.chm” and search for `HiiLib.h`. <br>
+
+3). **Add** the following library class (as shown below): <br>
 `HiiLib` <br>
-![](/media/image39.png)
-4. **Save** MyWizardDriver.inf 
-5. **Update** the MyWizardDriver.h file 
-6. **Add** the following code (as shown below):                <br> `#include <Library/HiiLib.h>`<br>
-![](/media/image40.png)
-7. **Save** MyWizardDriver.h 
-8. **Update** the MyWizardDriver.c file 
-9. **Add Locals:** first add 2 locals for your drivers configuration buffer and a boolean flag from the Hii Library calls <br>Add the following at Approx. Line 190. 
+![](/media/image39.png)<br>
+
+4). **Save** MyWizardDriver.inf <br>
+
+5). **Update** the MyWizardDriver.h file <br>
+
+6). **Add** the following code (as shown below):                <br> `#include <Library/HiiLib.h>`<br>
+![](/media/image40.png)<br>
+
+7). **Save** MyWizardDriver.h <br>
+
+8). **Update** the MyWizardDriver.c file <br>
+
+9). **Add Locals:** first add 2 locals for your drivers configuration buffer and a boolean flag from the Hii Library calls <br>Add the following at Approx. Line 190. 
 ```
   MYWIZARDDRIVER_CONFIGURATION     *Configuration;
   BOOLEAN                          ActionFlag;
 ```
-![](/media/image41.png)
-10. **Add** the following to the MyWizardDriverDriverEntryPoint entry point funtion to line 319, approximately after “`BufferSize =`” as shown below 
+![](/media/image41.png)<br>
+
+10). **Add** the following to the MyWizardDriverDriverEntryPoint entry point funtion to line 319, approximately after “`BufferSize =`” as shown below 
 ```
 // Begin code
   
@@ -75,8 +83,9 @@ MdeModulePkg/MdeModulePkg.dec
   ASSERT (ConfigRequestHdr != NULL);
 // End code
 ```
-![](/media/image42.png)
-11. Modify the following lines: <br>
+![](/media/image42.png)<br>
+
+11). Modify the following lines: <br>
 `@~338`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”<br>
 `@~342`: remove line: `ZeroMem (&PrivateData->Configuration, sizeof (MYWIZARDDRIVER_CONFIGURATION));`<br>
 `@~347`: remove: “`&PrivateData->`” from the “`&PrivateData->Configuration`”
