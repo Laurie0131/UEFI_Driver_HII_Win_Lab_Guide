@@ -130,20 +130,37 @@ Note the “`}`” on line 361 is still matching the initial if statement.  Make
 7.  Now at the setup front page menu,** select **“Device Manager”
 ![](/media/image18.png)
 8. **Press** “Enter”  to enter **“Device Manager”**
-9. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** 
+9. Inside the Device Manager menu** press **the down to **“My Wizard Driver Sample Formset” **
 ![](/media/image19.png)
-10. To Exit the “Device Manager” Page: **Press** “Escape”
+10. **Press** “Enter”
+![](/media/image20.png) 
+11. **Press** “Escape” to exit
+10. **Press** “Escape” to Exit the “Device Manager” Page
 11. **Press** Up Arrow to “Continue” and then **Press** “Enter” 
+![](/media/image24.png)
 12. **Type** "`Reset`" to return to the Visual Studio Command Prompt 
 ![](/media/image25.png)
- 
+<br> 
+
+For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.3
+NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean
+
+<br><br><br>
+<br><br><br>
 
 
 
 
 
-### Lab 3b. Add your Driver to the platform  {#a-add-your-driver-to-the-platform}
 
+### Lab 3_b._ Add your Driver to the platform  {#b-add-your-driver-to-the-platform}
+
+As of now, your driver needs to be soft loaded each time from the shell prompt.  In this lab, you’ll update the platform .FDF file to force your driver to load as part of the platform UEFI driver.  
+
+1. **Open** to update:  C:\fw\edk2\Nt32PkgNt32Pkg.Fdf 
+2. **Add** the following code (as shown below before “`!if $(BUILD_NEW_SHELL) == TRUE`” ):<br>
+ `INF MyWizardDriver/MyWizardDriver.inf`  <Br>
+3. **Save** Nt32pkg.fdf
 
 
 
