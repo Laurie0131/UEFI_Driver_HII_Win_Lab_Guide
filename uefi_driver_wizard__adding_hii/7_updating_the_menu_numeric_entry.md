@@ -28,23 +28,43 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## 7\. Updating the Menu: Numeric Entry {#7-updating-the-menu-numeric-entry}
+## Lab 7\. Updating the Menu: Numeric Entry {#7-updating-the-menu-numeric-entry}
 
 In this lab, you’ll learn how to add a numeric entry to your driver menu. This lab uses the VFR term “numeric” that prompts the user to enter a free-form numeric value. The VFR determines the minimum and maximum values with the terms “minimum” and “maximum”. Since there is also an enable/disable switch, the VFR uses the “suppressif” term to display or hide this field when disabled. Also this field displays as decimal (default) or hexadecimal with the “flags” switch.
+![](/media/image68.png)
+###### Figure 7 : Menu with Numeric item entry
 
-Figure 7 : Menu with Numeric item entry
+1. **Update** the MyWizardDriver.vfr file 
+2.  **Add** the following code in the location shown below at approx. Line 90 and before the “`resetbutton`” item: 
+```
+//
+// Define a numeric free form menu item 
+//
+  suppressif  ideqval MWD_IfrNVData.MyWizardDriverChooseToEnable == 0x0;
+   numeric varid   = MWD_IfrNVData.MyWizardDriverHexData,                          
+            prompt  = STRING_TOKEN(STR_DATA_HEX_PROMPT),
+            help    = STRING_TOKEN(STR_NUMERIC_HELP),
+            flags   = DISPLAY_UINT_HEX ,     // Display in HEX format (if not specified, default is in decimal format)
+            minimum = 0,
+```
+PIC__69
+3. **Save** MyWizardDriver.vfr 
+4. **Update** the MyWizardDriver.uni file 
+5. **Add** the following code to the bottom of the file: 
 
-| **Step** | **Action** |
-| --- | --- |
-|  | **Update** the MyWizardDriver.vfr file |
-|  | **Add** the following code in the location shown below at approx. Line 90 and before the “resetbutton” item: |
-|  | **//** |
-|  |  |
-|  | **Save** MyWizardDriver.vfr |
-|  | **Update** the MyWizardDriver.uni file |
-|  | **Add** the following code to the bottom of the file: |
-|  | #string STR_DATA_HEX_PROMPT #language en &quot;Enter ZY Base (Hex)&quot; |
-|  | **Save** MyWizardDriver.uni |
+```
+//Begin code
+#string STR_DATA_HEX_PROMPT            #language en "Enter ZY Base (Hex)"
+
+#string STR_NUMERIC_HELP               #language en "This is the help for entering a Base address in Hex. The valid range in this case is from 0 to 250."
+
+//End code
+
+```
+6). **Save** MyWizardDriver.uni 
+
+
+
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
 |  | **Type** build run |
