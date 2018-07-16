@@ -83,21 +83,30 @@ EFI_HII_CONFIG_ROUTING_PROTOCOL *HiiConfigRouting;
 
 //End code
 ```
-![](/media/image28.png)
-4. Since the Hii Database Protocol was located earlier in the code with the previous code insertion and is no longer necessary,** comment out **the old OpenProtocol code with the “`//`” (approx. lines 289-298, as shown below) and** add the comment **"`//`" Done above <br> Make sure not to comment out the second “` if (!EFI_ERROR (Status)) {`”
-![](/media/image29.png)<br> **Note**:  The earlier `LocateProtocol` code already found the pointer to the Hii Database protocol and stored it to the local pointer variable `HiiDatabase`. <br> When we added the driver-consumed protocols, we searched via `LocateProtocol` for the Hii Database pointer function. Since we did it above we’re now commenting out this code.
-5. **Comment out** the matching “`}`” with “`//`” to the if statement (as shown below at approx. line 310): 
-![](/media/image30.png)
-6. **Save** MyWizardDriver.c
-7. **Open** C:\fw\edk2\MyWizardDriver\HiiConfigAccess.c. <br>  The Driver Wizard only made dummy functions for the extract, route and callback functions. In order to save the Data passed into the forms from the Hii Browser engine, you will need to port these functions to be functional.
-8. **Add** the following extern statements for the form GUID and the NVRam variable (as shown below) these are global to the driver module only hence the beginning lower case “m” is the standard for a global for a module : 
+![](/media/image28.png)<br>
+
+4). Since the Hii Database Protocol was located earlier in the code with the previous code insertion and is no longer necessary,** comment out **the old OpenProtocol code with the “`//`” (approx. lines 289-298, as shown below) and** add the comment **"`//`" Done above <br> 
+Make sure not to comment out the second “` if (!EFI_ERROR (Status)) {`”<br>
+
+![](/media/image29.png)<br> 
+**Note**:  The earlier `LocateProtocol` code already found the pointer to the Hii Database protocol and stored it to the local pointer variable `HiiDatabase`. <br> When we added the driver-consumed protocols, we searched via `LocateProtocol` for the Hii Database pointer function. Since we did it above we’re now commenting out this code.<br>
+
+5). **Comment out** the matching “`}`” with “`//`” to the if statement (as shown below at approx. line 310): 
+![](/media/image30.png)<br>
+
+6). **Save** MyWizardDriver.c<br>
+
+7). **Open** C:\fw\edk2\MyWizardDriver\HiiConfigAccess.c. <br>  The Driver Wizard only made dummy functions for the extract, route and callback functions. In order to save the Data passed into the forms from the Hii Browser engine, you will need to port these functions to be functional.<br>
+
+8). **Add** the following extern statements for the form GUID and the NVRam variable (as shown below) these are global to the driver module only hence the beginning lower case “m” is the standard for a global for a module : 
 
 ```
 extern EFI_GUID   mMyWizardDriverFormSetGuid;
 extern CHAR16     mIfrVariableName[];
 ```
-![](/media/image31.png)
-9. **Locate** `MyWizardDriverHiiConfigAccessExtractConfig` and **replace** line 108, “`return EFI_NOT_FOUND`”, with the following code spread over  **Next** pages: 
+![](/media/image31.png)<br>
+
+9). **Locate** `MyWizardDriverHiiConfigAccessExtractConfig` and **replace** line 108, “`return EFI_NOT_FOUND`”, with the following code spread over  **Next** pages: 
 ![](/media/image32.png)<br>
 ```
 //Begin code
@@ -170,8 +179,9 @@ if (EFI_ERROR (Status)) {
   return Status;
 // End code
 ```
-- (10).  Now **locate** `MyWizardDriverHiiConfigAccessRouteConfig` and **replace** line at approx. 228, with “`return EFI_NOT_FOUND`”, with the following code: 
-![](/media/image33.png)
+10).  Now **locate** `MyWizardDriverHiiConfigAccessRouteConfig` and **replace** line at approx. 228, with “`return EFI_NOT_FOUND`”, with the following code: 
+![](/media/image33.png)<br>
+
 
 ```
 //Begin code
@@ -236,8 +246,9 @@ EFI_STATUS                       Status;
   //return EFI_NOT_FOUND;
 //end code
 ```
-- (11) Lastly**, locate** MyWizardDriverHiiConfigAccessCallback and **replace **at approx.**** line 326, “**return EFI_UNSUPPORTED**;”, with the following code: 
-![](/media/image34.png)
+
+11). Lastly**, locate** MyWizardDriverHiiConfigAccessCallback and **replace **at approx.**** line 326, “**return EFI_UNSUPPORTED**;”, with the following code: 
+![](/media/image34.png)<br>
 
 ```
 //Begin code
@@ -263,7 +274,7 @@ EFI_STATUS                       Status;
 //end code
 ```
 
-- (12) **Save** HiiConfigAccess.c 
+12). **Save** HiiConfigAccess.c 
 
 #### Build and test MyWizardDriver
 
