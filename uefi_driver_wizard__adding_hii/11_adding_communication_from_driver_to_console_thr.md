@@ -28,63 +28,82 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## 11\. Adding Communication from Driver to Console through HII {#11-adding-communication-from-driver-to-console-through-hii}
+## Lab 11\. Adding Communication from Driver to Console through HII {#11-adding-communication-from-driver-to-console-through-hii}
 
 In this lab, you’ll add communication from the driver to the console through HII. More specifically, you’ll add code to retrieve a string from the HII database and print the string to the console. Then, you’ll add the string in French, change the language, and test to ensure the correct language is displayed. The reason the driver should avoid direct string text to the console without the HII support is because there is no localization for text string inside the driver’s source code. By using the HII database the strings are tokenized making localization easier.
 
-| **Step** | **Action** |
-| --- | --- |
-|  | For HII database library functions open the MdeModulePkg .Chm file and search on HiiLib.h functions |
-|  | Select the Index tab |
-|  | Type: HiiLib.h |
-|  | **_Note_**: Notice the list of Hii function calls available. To get Strings the HiiGetString function can be used. |
-|  | **Update** the C:\Fw\edk2\Nt32pkg\Nt32pkg.fdf file |
-|  | Make your driver stand alone. **Remove** (or comment out) the include statement in the Nt32pkg.fdf file: |
-|  | #INF MyWizardDriver/MyWizardDriver.inf |
-|  |  |
-|  | **Save** Nt32pkg.fdf |
-|  | **Update** the MyWizardDriver.uni file |
-|  | Add the following code to the top of the file at approx. line 14 as shown: |
-|  | #langdef fr-FR &quot;Francais&quot; |
-|  |  |
-|  | Add the following code to the end of the file: |
-|  | #string STR_LANGUAGE_TEST_STRING #language en &quot;Laurie&#039;s Test String&quot; |
-|  |  |
-|  | **Save** MyWizardDriver.uni |
-|  | **Update** the MyWizardDriver.c file |
-|  | **Add** the following local variable for StringPtr after “BOOLEAN ActionFlag;” and before “Status = EFI_SUCCESS;”(as shown below): |
-|  | EFI_STRING StringPtr; |
-|  |  |
-|  | Add the following code after “FreePool (ConfigRequestHdr);” (as shown below) to edit the driver’s entry point with a debug and print statement by making a call to the HiiGetString for the token to print (at approx line 364): |
-|  | StringPtr = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_STRING), NULL); |
-|  |  |
-|  | **Save** the MyWizardDriver.c |
-|  | In the Visual Studio Command Prompt, **type** build |
-|  | **Press** “Enter” |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type** Fs0: |
-|  | **Press** “Enter” |
-|  | **Type** load MyWizardDriver.efi and notice that the string’s English version is displayed: |
-|  | **Type** Reset |
-|  | **Press** “Enter” |
-|  | **Type** build |
-|  | **Type** build run |
-|  | **Press** “Enter” |
-|  | **Type exit** at the shell prompt |
-|  | **Select Language** |
-|  | **Press** “Enter” |
-|  | **Select** “Français” |
-|  | **Press** “Enter” |
-|  | **Select** “Continuer” |
-|  | **Press** “Enter” |
-|  | At the Shell Prompt, **type** Fs0: |
-|  | **Type** load MyWizardDriver.efi |
-|  | **Type “reset”** |
-|  | **Press** “Enter” to return to the Visual Studio Command Prompt |
+### Examine the MdeModulePkg.Chm for HII
+1. Use the .Chm reader and open  the MdeModulePkg.Chm. For HII database library functions are in  the MdeModulePkg .Chm file. Search on HiiLib.h functions 
+2. Select the Index tab 
+3. Type: HiiLib.h <br>
+![](/media/image98.png)
+**_Note_**: Notice the list of Hii function calls available. To get Strings the `HiiGetString` function can be used. 
+![](/media/image99.png)
+
+### Add changes to your Driver
+1. **Update** the C:\Fw\edk2\Nt32pkg\Nt32pkg.fdf file 
+2. Make your driver stand alone again. **Remove** (or comment out) the include statement in the Nt32pkg.fdf file: <br>
+` #INF MyWizardDriver/MyWizardDriver.inf` <br>
+![](/media/image100.png)
+3. **Save** Nt32pkg.fdf 
+4. **Update** the MyWizardDriver.uni file 
+5. Add the following code to the top of the file at approx. line 14 as shown: <br>
+  `#langdef fr-FR  "Francais"`<br>
+![](/media/image101.png)
+6. **Add** the following code to the end of the file: <br>
+
+
+```
+#string STR_LANGUAGE_TEST_STRING        #language en "Laurie's Test String"                    
+				                        #language fr-FR "Chaîne de test de Laurie"
+
+```
+![](/media/image102.png)
+7). **Save** MyWizardDriver.uni 
+8). **Update** the MyWizardDriver.c file 
+9). **Add** the following local variable for `StringPtr` after “`BOOLEAN ActionFlag;`” and before “`Status = EFI_SUCCESS;`”(as shown below): <br>
+  `EFI_STRING StringPtr;`<br>
+![](/media/image103.png)
+10). Add the following code after “`FreePool (ConfigRequestHdr);`” (as shown below) to edit the driver’s entry point with a debug and print statement by making a call to the `HiiGetString` for the token to print (at approx line 364): 
+
+```
+StringPtr        = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_STRING), NULL);
+   DEBUG ((EFI_D_INFO,"[MyWizardDriver-Entrypoint] My String was: %s\n", StringPtr) );
+   Print(L"%s\n", StringPtr );
+```
+![](/media/image104.png)
+11). **Save** the MyWizardDriver.c 
+
+
+### Build and test Driver
+1. **Open** the Visual Studio Command Prompt 
+2.  **Type** build 
+3. **Type** build run 
+4.  **At the UEFI Shell prompt,type** fs0: 
+5.  **Type** Load MyWizardDriver.efi  and then **Press** “Enter”
+![](/media/image105.png) <br>
+**Notice **that the string’s English version is displayed:
+6. **Type** Reset  and then **Press** “Enter” 
+7.  **Type** "build run" and then  **Press** “Enter” 
+8. **Type** "exit" at the shell prompt 
+9. **Select Language** and then **Press** “Enter” 
+![](/media/image106.png)
+10.  **Select** “Français”  and then **Press** “Enter” 
+![](/media/image107.png)<br>
+11. **Select** “Continuer” and then **Press** “Enter” 
+![](/media/image108.png)
+12. At the Shell Prompt, **type** Fs0: 
+13. **Type** load MyWizardDriver.efi 
+![](/media/image109.png)
+14.  **Type** “reset” and then  **Press** “Enter” to return to the Visual Studio Command Prompt 
+![](/media/image26.png)
+
+---
 
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.11
 
 NOTE: Del Directory C:\fw\edk2\Build\NT32IA32\DEBUG_VS2010x86\IA32\MyWizardDriver before the Build command to build the MyWizardDriver Clean.
 
 Make sure you update Nt32Pkg.fdf.
+
+### End Lab 11
