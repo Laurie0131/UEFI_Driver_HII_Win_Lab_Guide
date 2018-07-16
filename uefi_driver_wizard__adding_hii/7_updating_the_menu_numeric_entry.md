@@ -93,7 +93,7 @@ The string **“!!”** is part of the Browser engine : `MdeModulePkg\Universal\
 **Notice** by `modifyingMyWizardDriverNVDataStruc.h` our data structure stored in NVRAM is named `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`. 
 ![](/assets/image74_75.JPG)
 17 **Type “reset”** at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
-![](/media/image26.png)
+![](/media/image25.png)
 
 ---
 
