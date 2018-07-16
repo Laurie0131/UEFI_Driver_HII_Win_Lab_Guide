@@ -93,7 +93,8 @@ formset
 endformset;
 
 ```
-7). **Save** MyWizardDriver.vfr 
+7). **Save** MyWizardDriver.vfr <br>
+
 8). Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
 
 ```
@@ -114,7 +115,7 @@ endformset;
 ```
 
 
-9). **Save** MyWizardDriver.uni 
+9). **Save** MyWizardDriver.uni <br>
 10). Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
 
 
@@ -127,8 +128,7 @@ endformset;
 ```
 
 
-![](/media/image9.png)
-
+![](/media/image9.png)<br>
 11). To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “`extern`” statements: 
 
 ```
