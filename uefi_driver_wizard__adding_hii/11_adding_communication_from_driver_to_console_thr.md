@@ -95,13 +95,13 @@ StringPtr        = HiiGetString (HiiHandle[0], STRING_TOKEN (STR_LANGUAGE_TEST_S
 9. **Select Language** and then **Press** “Enter” 
 ![](/media/image106.png)<br>
 
-10.  **Select** “Français”  and then **Press** “Enter” 
+10.  **Select** “Français”  and then **Press** “Enter” <Br>
 ![](/media/image107.png)<br>
-11. **Select** “Continuer” and then **Press** “Enter” 
+11. **Select** “Continuer” and then **Press** “Enter” <br>
 ![](/media/image108.png)
 12. At the Shell Prompt, **type** Fs0: 
-13. **Type** load MyWizardDriver.efi 
-![](/media/image109.png)
+13. **Type** load MyWizardDriver.efi <br>
+![](/media/image109.png)<br>
 14.  **Type** “reset” and then  **Press** “Enter” to return to the Visual Studio Command Prompt 
 ![](/media/image97.png)
 
