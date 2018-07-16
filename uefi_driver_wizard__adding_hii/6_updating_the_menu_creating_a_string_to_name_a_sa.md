@@ -50,7 +50,7 @@ In this lab, you’ll create a string to name a saved configuration that will be
     endstring;
   endif;
 ```
-PIC__60
+![](/media/image60.png)
 3. **Save** MyWizardDriver.vfr 
 4. **Update** MyWizardDriver.uni 
 5. **Add** the following code to the bottom of the file: <br>
@@ -62,6 +62,7 @@ PIC__60
 #string STR_MY_STRING_HELP             #language en "Enter a name for this configuration. This string can is 3 to 20 characters"
 //End Code
 ```
+![](/media/image61.png)
 6) **Save** MyWizardDriver.uni 
 
 #### Build and test MyWizardDriver

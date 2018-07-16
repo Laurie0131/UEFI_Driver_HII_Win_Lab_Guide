@@ -64,6 +64,16 @@ PIC__69
 6). **Save** MyWizardDriver.uni 
 
 
+#### Build and test MyWizardDriver
+
+1. **Open** the Visual Studio Command Prompt
+2. **Type** build
+3. **Type** build run
+4. At the UEFI Shell prompt,type **exit**<br>
+![](/media/image46.png)
+5. Now at the setup front page menu,** select** “Device Manager”
+6. Inside the Device Manager menu** press **the down arrow to “My Wizard Driver Sample Formset” **Press** "Enter"
+
 
 |  | In the Visual Studio Command Prompt, **type** build |
 |  | **Press** “Enter” |
