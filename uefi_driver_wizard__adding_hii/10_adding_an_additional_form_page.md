@@ -65,8 +65,9 @@ In addition, this lab will show how the “time” and “date” VFR terms are 
 
 ```
 
-6). **Save** MyWizardDriver.uni 
-7). **Update** the MyWizardDriver.vfr file 
+6). **Save** MyWizardDriver.uni <br>
+7). **Update** the MyWizardDriver.vfr file <br>
+
 8). **Add** the “`goto`” VFR item to allow browser to ender another form by adding the following code before the "`endform`” at approx. line 114 <Br>
 
 
