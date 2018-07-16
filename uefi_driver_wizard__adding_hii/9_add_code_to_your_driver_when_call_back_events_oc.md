@@ -92,7 +92,7 @@ For this lab we will simply add Debug print statements. However, the use of addi
 9. **Press** “Escape” and another "Escape" to exit the “Device Manager”
 10. **Select** “Continue” and then **Press** "Enter”
 11. **Type** “reset” at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>
-![](/media/image26.png)
+![](/media/image25.png)
 
 ---
 For any build issues copy the solution files from C:\Fw\LabSolutions\LessonE.9
