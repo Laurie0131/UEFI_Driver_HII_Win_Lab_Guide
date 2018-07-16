@@ -50,18 +50,14 @@ In this lab, you’ll learn how to add a numeric entry to your driver menu. This
 ![](/media/image69.png)
 3. **Save** MyWizardDriver.vfr 
 4. **Update** the MyWizardDriver.uni file 
-5. **Add** the following code to the bottom of the file: 
+5. **Add** the following code to the bottom of the file:
 
 ```
-//Begin code
 #string STR_DATA_HEX_PROMPT            #language en "Enter ZY Base (Hex)"
-
 #string STR_NUMERIC_HELP               #language en "This is the help for entering a Base address in Hex. The valid range in this case is from 0 to 250."
 
-//End code
-
 ```
-6). **Save** MyWizardDriver.uni 
+6).  **Save** MyWizardDriver.uni 
 
 
 #### Build and test MyWizardDriver
