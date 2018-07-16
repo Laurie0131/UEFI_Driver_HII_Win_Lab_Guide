@@ -28,7 +28,7 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## a. Setup for Lab adding HII {#setup-for-lab-adding-hii}
+## Lab 1 a. Setup for Lab adding HII {#setup-for-lab-adding-hii}
 
 1. Complete [Lab Setup](../lab_setup/README.md) to configure for building with Visual Studio.
 
@@ -42,6 +42,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ![](/media/image4.png)
 6. **Type** CD C:\fw\edk2
 ![](/media/image5.png)
-7. **Type** Edksetup (This is only needed if starting out with a **new** Visual Studio Command Prompt Window )
+7. **Type** Edksetup (This is only needed if starting out with a **new** Visual Studio Command Prompt Window )<br>
 ![](/media/image6.png)
 ![](/media/image7.png)
+

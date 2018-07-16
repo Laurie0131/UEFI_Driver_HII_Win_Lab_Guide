@@ -29,7 +29,7 @@ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS DOCUMENTATION, EVEN IF
 ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -->
-## b. Edit Driver for adding HII {#b-edit-driver-for-adding-hii}
+## Lab 1 b. Edit Driver for adding HII {#b-edit-driver-for-adding-hii}
 
 1. **Open** C:\fw\edk2\MyWizardDriver 
 2. **Open** the following files for updating: 
@@ -73,7 +73,6 @@ formset
     subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT);
 
     subtitle text = STRING_TOKEN(STR_SUBTITLE_TEXT2);
- 
   //
   // Define a checkbox to enable / disable the device
   //
@@ -81,8 +80,8 @@ formset
                  prompt   = STRING_TOKEN(STR_CHECK_BOX_PROMPT),
                  help     = STRING_TOKEN(STR_CHECK_BOX_HELP),
                  //
-                 // CHECKBOX_DEFAULT indicate this checkbox is marked with 
-	      //   EFI_IFR_CHECKBOX_DEFAULT
+                 // CHECKBOX_DEFAULT indicate this checkbox is marked
+ 	         //   with EFI_IFR_CHECKBOX_DEFAULT
                  // 
                  flags    = CHECKBOX_DEFAULT ,
                  key      = 0,
@@ -94,8 +93,8 @@ formset
 endformset;
 
 ```
-- `7`. **Save** MyWizardDriver.vfr <br>
-- `8`. Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+7). **Save** MyWizardDriver.vfr 
+8). Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
 
 ```
 
@@ -115,9 +114,10 @@ endformset;
 ```
 
 
-- `9`. **Save** MyWizardDriver.uni 
-- `10`. Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
-<pre>
+9). **Save** MyWizardDriver.uni 
+10). Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
+
+
 ```
 // Added for HII
 #include <Protocol/HiiConfigRouting.h>  
@@ -125,9 +125,11 @@ endformset;
 #include <Protocol/HiiString.h> 
 #include <Library/DevicePathLib.h>
 ```
-</pre>
+
+
 ![](/media/image9.png)
-- `11`. To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “`extern`” statements: 
+
+11). To add a data structure for HII routing and access, **add** the following code at approximately line 75 by copying and pasting after the “`extern`” statements: 
 
 ```
    #define MYWIZARDDRIVER_DEV_SIGNATURE SIGNATURE_32 ('m', 'w', 'd', 'r')  
@@ -137,8 +139,8 @@ typedef struct {
   UINT32                           Signature;
 
   EFI_HANDLE                       Handle;
-  MYWIZARDDRIVER_CONFIGURATION	   Configuration;  
-EFI_HANDLE                       DriverHandle[2];  
+  MYWIZARDDRIVER_CONFIGURATION	    Configuration;  
+  EFI_HANDLE                       DriverHandle[2];  
   EFI_HII_HANDLE                   HiiHandle[2];
   //
   // Consumed protocol
@@ -170,8 +172,8 @@ typedef struct {
 
 ```
 ![](/media/image10.png)<br>
-- `12`.  **Save** MyWizardDriver.h 
-- `13`.  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>In this step, you declare a local (to the module “m”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
+12).  **Save** MyWizardDriver.h 
+13).  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>In this step, you declare a local (to the module “`m`”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
 
 ```
 // Begin code 
@@ -180,7 +182,7 @@ EFI_GUID   mMyWizardDriverFormSetGuid = MYWIZARDDRIVER_FORMSET_GUID;
 
 CHAR16     mIfrVariableName[] = L"MWD_IfrNVData";
 EFI_HANDLE                      mDriverHandle[2] = {NULL, NULL};
-MYWIZARDDRIVER_DEV			    *PrivateData = NULL;
+MYWIZARDDRIVER_DEV		 *PrivateData = NULL;
 
 // HII support for Device Path
 HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
@@ -206,7 +208,7 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
 };
 // end code
 ```
-- `14`. **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoin`t in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
+14). **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoin`t in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
 
 ```
  // HII Locals
@@ -218,7 +220,7 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
 
 ```
 ![](/media/image11.png)
-- `15`.  **Locate** the **ASSERT_EFI_ERROR (Status);** statement and the line: **// Retrieve HII Package List Header on ImageHandle** (approximately line 202). Now, **add** the following code to install the configuration access protocol (produced) by copying and pasting (as shown below) before the line: **// Retrieve HII Package List Header on ImageHandle** 
+15).  **Locate** the **ASSERT_EFI_ERROR (Status);** statement and the line: **// Retrieve HII Package List Header on ImageHandle** (approximately line 202). Now, **add** the following code to install the configuration access protocol (produced) by copying and pasting (as shown below) before the line: **// Retrieve HII Package List Header on ImageHandle** 
 
 ```c
 //Now do HII Stuff
@@ -254,14 +256,14 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
 // end code
 ```
 ![](/media/image12.png)
-- `16`.  Next, **add** code to register a list of HII packages in the HII Database with the HII device path. This requires you to **replace** existing code (see below) by copying and pasting the new code at approx. line 265. 
+16).  Next, **add** code to register a list of HII packages in the HII Database with the HII device path. This requires you to **replace** existing code (see below) by copying and pasting the new code at approx. line 265. 
 <br>**Old Code**<br>
 ![](/media/image13.png)<br>
 `mDriverHandle[0],`<br>
 `&HiiHandle[0]`<br>
 <br>**New Code** <br>
 ![](/media/image14.png)
-- `17`. Next, you’ll **add** code to initialize the My Wizard Driver NVRAM variable by copying and pasting the following code **before** the` // Install Driver Supported EFI Version Protocol onto ImageHandle` comment (as shown below at approximately line 273): 
+17). Next, you’ll **add** code to initialize the My Wizard Driver NVRAM variable by copying and pasting the following code **before** the` // Install Driver Supported EFI Version Protocol onto ImageHandle` comment (as shown below at approximately line 273): 
 
 ```
  // Begin code
@@ -291,8 +293,8 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
 // end code
 ```
 ![](/media/image15.png)
-- `18`. **Save** MyWizardDriver.c 
-- `19`. Now onto the final file, MyWizardDriver.inf. **Add** the following protocols in the [protocols] section that are being used by copying and pasting (as shown below): 
+18). **Save** MyWizardDriver.c 
+19). Now onto the final file, MyWizardDriver.inf. **Add** the following protocols in the [protocols] section that are being used by copying and pasting (as shown below): 
 
 ```
 gEfiHiiStringProtocolGuid                   ## CONSUMES
@@ -319,15 +321,15 @@ gEfiHiiDatabaseProtocolGuid                 ## CONSUMES
 ![](/media/image18.png)
 9. **Press** “Enter”  to enter **“Device Manager”**
 10. **Inside the Device Manager menu** press **the down to “My Wizard Driver Sample Formset”**** **Press** "Enter"
-![](/media/image19.png)
+![](/media/image19.png)<br>
 **Press** "Enter"
-![](/media/image20.png)
+![](/media/image20.png)<br>
 **_Note_:** Notice that your form is now displayed with a choice to enable your device. Also notice the titles and help strings that are in the .UNI file you edited. <br>At this point since the HII configuration routing functions are not functional the values (Enable/ Disable) will not be saved to NVRAM. The next lab will update the HII Extract, Route, and call back functions for the HII configuration routing protocol your driver will produce.
 
 11. **Press** the space bar to Enable and Disable the “Enable My XYZ Device” 
 12. **Press** F10 to attempt to save 
 ![](/media/image21.png)
-![](/media/image22.png)
+![](/media/image22.png)<br>
 **_Note_:** You’re not able to save the data changes at this point.
 13. **Press **“Enter”**** 
 14. **Press **“Escape”, and then “Y” to exit***
@@ -335,9 +337,10 @@ gEfiHiiDatabaseProtocolGuid                 ## CONSUMES
 ![](/media/image23.png)
 16. **Press **Up Arrow to “Continue”**** 
 ![](/media/image24.png)
-18. **At the Shell prompt** type **Reset**
+18. **At the Shell prompt** type **Reset**<br>
 ![](/media/image25.png)
 19. **Press** “Enter” to return to the Visual Studio Command Prompt 
+![](/media/image26.png)
 ---
 
 You’ve completed the first lab and added strings and forms to setup HII for user configuration. However, **the data is not saved to NVRAM**. In the next lab, you’ll learn how to update HII to save data to NVRAM.
