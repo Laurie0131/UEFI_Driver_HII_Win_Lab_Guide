@@ -95,7 +95,7 @@ endformset;
 ```
 7). **Save** MyWizardDriver.vfr <br>
 
-8). Now onto the MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
+8). **Update ** MyWizardDriver.uni file. You’ll add new strings to support the forms. **Delete** the file’s content and **replace** it with the following by copying and pasting: 
 
 ```
 
@@ -116,7 +116,7 @@ endformset;
 
 
 9). **Save** MyWizardDriver.uni <br>
-10). Now update the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
+10). **Update** the MyWizardDriver.h file. **Add** the following HII libraries starting at approximately line 41 (as shown below) by copying and pasting: 
 
 
 ```
@@ -172,8 +172,9 @@ typedef struct {
 
 ```
 ![](/media/image10.png)<br>
-12).  **Save** MyWizardDriver.h 
-13).  Now onto the MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>In this step, you declare a local (to the module “`m`”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
+12).  **Save** MyWizardDriver.h <br>
+
+13). ** Update**  MyWizardDriver.c file. <br> **Add** local definitions for the form GUID, variable name, and device path for HII at approximately line 13 after the `#include "MyWizardDriver.h"` by coping and pasting the following code. <br>In this step, you declare a local (to the module “`m`”) variable for the GUID we declared; the NVRAM variable name; driver handles; our configuration data; and the device path support.
 
 ```
 // Begin code 
@@ -208,7 +209,7 @@ HII_VENDOR_DEVICE_PATH  mHiiVendorDevicePath = {
 };
 // end code
 ```
-14). **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoin`t in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
+14). **Locate** EFI_STATUS within the function `MyWizardDriverDriverEntryPoint` in the `MyWizardDriver.c `file (approx. Line 184) and **add** HII local definitions by copying and pasting (as shown below): 
 
 ```
  // HII Locals

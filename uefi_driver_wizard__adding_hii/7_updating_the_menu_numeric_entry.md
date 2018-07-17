@@ -30,7 +30,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 ## Lab 7\. Updating the Menu: Numeric Entry {#7-updating-the-menu-numeric-entry}
 
-In this lab, you’ll learn how to add a numeric entry to your driver menu. This lab uses the VFR term “numeric” that prompts the user to enter a free-form numeric value. The VFR determines the minimum and maximum values with the terms “minimum” and “maximum”. Since there is also an enable/disable switch, the VFR uses the “suppressif” term to display or hide this field when disabled. Also this field displays as decimal (default) or hexadecimal with the “flags” switch.
+In this lab, you’ll learn how to add a numeric entry to your driver menu. This lab uses the VFR term “`numeric`” that prompts the user to enter a free-form numeric value. The VFR determines the minimum and maximum values with the terms “`minimum`” and “`maximum`”. Since there is also an enable/disable switch, the VFR uses the “`suppressif`” term to display or hide this field when disabled. Also this field displays as decimal (default) or hexadecimal with the “`flags`” switch.
 ![](/media/image68.png)
 ###### Figure 7 : Menu with Numeric item entry
 
@@ -89,7 +89,7 @@ The string **“!!”** is part of the Browser engine : `MdeModulePkg\Universal\
 13. **Press** “F10”  to save, then “Escape” to exit
 14. **Press** “Escape” to exit the “Device Manager” 
 15. **Select “**Continue**”** and then **Press** "Enter”
-16. At the Shell Prompt, **type** dmpstore –all <br>
+16. At the Shell Prompt, **type** `dmpstore –all` <br>
 **Notice** by `modifyingMyWizardDriverNVDataStruc.h` our data structure stored in NVRAM is named `MWD_IfrNVData` of type `MYWIZARDDRIVER_CONFIGURATION`. 
 ![](/assets/image74_75.JPG)
 17 **Type “reset”** at the Shell prompt and then **Press** “Enter” to return to the Visual Studio Command Prompt <br>

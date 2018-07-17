@@ -35,7 +35,7 @@ In this lab, you’ll learn how to add a _pop-up box_ to your driver’s form me
 ###### Figure 5 My Wizard Driver with a pop-up box
 
 **Background Information **
-The VFR term “**oneof**” will declare a pop-up menu. The user then selects one field that will dictate the value stored in the NVRAM variable.  Looking at Figure 6 above, there are three values:
+The VFR term “**oneof**” will declare a pop-up menu. The user then selects one field that will dictate the value stored in the NVRAM variable.  Looking at Figure 5 above, there are three values:
 
 | Value | Display | String token |
 | --- | --- | --- |
